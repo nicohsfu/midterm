@@ -13,10 +13,7 @@ const router  = express.Router();
 router.get('/', (req, res) => {
   res.render('users');
 });
-<<<<<<< HEAD
 
 // this is a PUUSUDSUDSHHHH
-=======
->>>>>>> 49c55e6135fbad0851ef4006547638ed8e272524
 
 module.exports = router;
