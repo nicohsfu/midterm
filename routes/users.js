@@ -8,16 +8,8 @@
 const express = require('express');
 const router  = express.Router();
 
-// hello from Nico
-
 router.get('/', (req, res) => {
   res.render('users');
 });
-
-// this is a PUUSUDSUDSHHHH
-
-// 3rd edit
-
-//oh yeahhhh finallyyyyyyy 4rd edit
 
 module.exports = router;
