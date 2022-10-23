@@ -36,7 +36,10 @@ const widgetApiRoutes = require('./routes/widgets-api');
 
 //for rendering
 const usersRoutes = require('./routes/users');
-const checkoutRoutes = require('./routes/checkout');
+
+const foodsRoutes = require('./routes/foods');
+const cartRoutes = require('./routes/cart');
+const orderStatusRoutes = require('./routes/order_status');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -44,7 +47,11 @@ const checkoutRoutes = require('./routes/checkout');
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
-app.use('/checkout', checkoutRoutes);
+
+app.use('/foods', foodsRoutes);
+app.use('/cart', cartRoutes);
+app.use('/order_status', orderStatusRoutes);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -52,7 +59,8 @@ app.use('/checkout', checkoutRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  // res.render('index');
+  res.redirect('foods');
 });
 
 app.listen(PORT, () => {
