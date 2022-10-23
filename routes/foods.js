@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// GET foods/
+// GET foods/ ✅
 router.get('/', (req, res) => {
   res.render('foods');
 });
@@ -13,6 +13,35 @@ router.get('/admin', (req, res) => {
 
 // POST foods/admin
 router.post('/admin', (req, res) => {
+
+  const addFood = function(food) {
+
+    const queryString = `
+      INSERT INTO foods (name, description, price)
+      VALUES ($1, $2, $3)
+    `;
+
+    const queryParams = [`${food.name}`, `${food.description}`, `${food.price}`];
+
+    return pool
+      .query(queryString, queryParams)
+      .then(result => {
+        console.log("result.rows[0]: ", result.rows[0]);
+        result.rows[0];
+      })
+      .catch(error => console.log("error: ", error));
+  };
+
+  addFood({ ...req.body })
+    .then(food => {
+      res.send(food);
+    })
+    .catch(e => {
+      console.error(e);
+      res.send(e);
+    });
+
+
   res.redirect('admin_foods');
 });
 
@@ -34,3 +63,19 @@ router.post('/admin/:foodId/delete', (req, res) => {
 });
 
 module.exports = router;
+
+// for reference:
+// const addProperty = function(property) {
+//   const { owner_id, title, description } = property;
+
+//   const queryString = `
+//     INSERT INTO properties (id, title, description)
+//     VALUES($1, $2, $3) RETURNING *;
+//   `;
+
+//   const queryParams = [owner_id, title, description];
+
+//   return pool.query(queryString, queryParams)
+//     .then(result => result.rows[0])
+//     .catch(err => console.log(err.message));
+// };
