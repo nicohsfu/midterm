@@ -8,7 +8,7 @@
 
 ## Desktop view - admin 
 
-!["screenshot description"](https://github.com/nicohsfu/midterm/blob/master/docs/1920%20X%20height%20-%20admin%20orders%20view.png?raw=true)
+!["screenshot description"](https://github.com/nicohsfu/midterm/blob/master/docs/1920%20X%20height%20-%20admin%20view%203.png?raw=true)
 
 !["screenshot description"](https://github.com/nicohsfu/midterm/blob/master/docs/1920%20X%20height%20-%20admin%20view.png?raw=true)
 
