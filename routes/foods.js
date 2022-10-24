@@ -1,6 +1,31 @@
 const express = require('express');
 const router = express.Router();
 
+
+// test routes
+
+router.get('/1', (req, res) => {
+  res.render('admin_foods');
+});
+
+router.get('/2', (req, res) => {
+  res.render('admin_edit');
+});
+
+router.get('/3', (req, res) => {
+  res.render('admin_orders');
+});
+
+router.get('/4', (req, res) => {
+  res.render('foods');
+});
+
+router.get('/5', (req, res) => {
+  res.render('order');
+});
+
+// -----------
+
 // GET foods/ ✅
 router.get('/', (req, res) => {
   res.render('foods');
