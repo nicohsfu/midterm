@@ -39,7 +39,12 @@ router.get('/admin', (req, res) => {
 // POST foods/admin
 router.post('/admin', (req, res) => {
 
+  // move this entire function out of here
+  // refer to the tweeter project
   const addFood = function(food) {
+
+    // write all queries in separate functions elsewhere, and then call it here
+    // don't do it like lines 48/49
 
     const queryString = `
       INSERT INTO foods (name, description, price)
@@ -57,6 +62,7 @@ router.post('/admin', (req, res) => {
       .catch(error => console.log("error: ", error));
   };
 
+  // call the function here, line 65-72 stays here
   addFood({ ...req.body })
     .then(food => {
       res.send(food);
