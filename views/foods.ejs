@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <%- include('partials/_header') %>
+  <form%- include('partials/_header') %>
   <h1> main /foods page that the customer sees 🍱</h1>
 
 <h1>Blackbeard's Bar & Grill</h1>
@@ -30,8 +30,9 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nis uisque nibh nulla, lacinia ut augue sit amet, dapibus convallis velit.</p>
     <div>
       <p>$8.99</p>
-      <button>Edit</button>
-      <button>Delete</button>
+      <button class="minus">-</button>
+      <p>1</p>
+      <button class="plus">+</button>
     </div>
   </span>
   <span>
@@ -41,41 +42,43 @@
     ></img>
   </span>
 </article>
+<!-- have no end point yet, foods/3 is just a placeholder -->
+<form method="POST" action="/foods/3">
+  <h2>Your Cart</h2>
+  <table>
+    <tr>
+      <td>Burrito</td>
+      <td>x1</td>
+      <td>14.99</td>
+    </tr>
+    <tr>
+      <td>Carbonara</td>
+      <td>x2</td>
+      <td>37.98</td>
+    </tr>
+    <tr>
+      <td>Milkshake</td>
+      <td>x1</td>
+      <td>9.99</td>
+    </tr>
+    <tr>
+      <td>Cake</td>
+      <td>x2</td>
+      <td>21.98</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>Total: $82.94</td>
+    </tr>
+  </table>
 
-<h2>Your Cart</h2>
-<table>
-  <tr>
-    <td>Burrito</td>
-    <td>x1</td>
-    <td>14.99</td>
-  </tr>
-  <tr>
-    <td>Carbonara</td>
-    <td>x2</td>
-    <td>37.98</td>
-  </tr>
-  <tr>
-    <td>Milkshake</td>
-    <td>x1</td>
-    <td>9.99</td>
-  </tr>
-  <tr>
-    <td>Cake</td>
-    <td>x2</td>
-    <td>21.98</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td>Total: $82.94</td>
-  </tr>
-</table>
+  <p>Your satisfaction awaits, <strong>Bob.</strong></p>
 
-<p>Your satisfaction awaits, <strong>Bob.</strong></p>
-
-<button>
-  Place Order
-</button>
+  <button>
+    Place Order
+  </button>
+</form>
 
 </body>
 

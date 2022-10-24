@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Admin</title>
+  <title>Admin - Foods</title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,10 +24,9 @@
 
   <h1>Add new item</h1>
 
-  <form class="form-inline justify-content-center" action="/admin" method="POST">
+  <form class="form-inline justify-content-center" action="/foods/admin" method="POST">
     <div class="form-group mb-2">
       <input
-        class="form-control"
         name="Name"
         placeholder="eg. Mushroom Burger"
         style="width: 300px; margin: 1em"
@@ -35,7 +34,6 @@
       <p>Name</p>
 
       <input
-        class="form-control"
         name="Price"
         placeholder="eg. $14.99"
         style="width: 300px; margin: 1em"
@@ -43,7 +41,6 @@
       <p>Price</p>
 
       <input
-      class="form-control"
       name="Image URL"
       placeholder="eg. https://yourimage.url/"
       style="width: 300px; margin: 1em"
@@ -67,8 +64,12 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nis uisque nibh nulla, lacinia ut augue sit amet, dapibus convallis velit.</p>
       <div>
         <p>$8.99</p>
-        <button>Edit</button>
-        <button>Delete</button>
+        <form method="GET" action="/foods/admin/:foodId">
+          <button>Edit</button>
+        </form>
+        <form method="POST" action="/foods/admin/:foodId/delete">
+          <button>Delete</button>
+        </form>
       </div>
     </span>
     <span>
