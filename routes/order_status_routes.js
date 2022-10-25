@@ -5,12 +5,14 @@ const router = express.Router();
 // twilio stuff
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const autoToken = process.env.TWILIO_AUTH_TOKEN;
+const twilioNumber = process.env.TWILIO_FROM;
+const recipientNumber = process.env.TWILIO_TO;
 const client = require('twilio')(accountSid, autoToken);
 
 const userReceivesConfirmation = function() {
   client.messages.create({
-    from: '14243378014', //twilio fake number
-    to: '16047674603', //my phone number
+    from: twilioNumber, //twilio fake number
+    to: recipientNumber, //my phone number
     body: 'Hi Bob, your order has been successfully placed!'
   }).then(() => console.log("Hi User, your order has been successfully placed!!!"))
     .catch((err) => { err.message; });
@@ -18,8 +20,8 @@ const userReceivesConfirmation = function() {
 
 const adminReceivesOrder = function() {
   client.messages.create({
-    from: '14243378014', //twilio fake number
-    to: '16047674603', //my phone number
+    from: twilioNumber, //twilio fake number
+    to: recipientNumber, //my phone number
     body: 'Hi Admin, Bob has placed an order! Please send them an estimated wait time on your desktop/tablet.'
   }).then(() => console.log("Hi Admin, Bob has placed an order! Please send them an estimated wait time on your desktop/tablet."))
     .catch((err) => { err.message; });
@@ -29,16 +31,16 @@ const userReceivesEstimatedTime = function() {
   const delay = 5;
 
   client.messages.create({
-    from: '14243378014', //twilio fake number
-    to: '16047674603', //my phone number
+    from: twilioNumber, //twilio fake number
+    to: recipientNumber, //my phone number
     body: `Hi Bob, your order will be ready for pickup in ${delay} minutes.`
   }).then(() => console.log(`Hi Bob, your order will be ready for pickup in ${delay} minutes`))
     .catch((err) => { err.message; });
 
   setTimeout(() => {
     client.messages.create({
-      from: '14243378014', //twilio fake number
-      to: '16047674603', //my phone number
+      from: twilioNumber, //twilio fake number
+      to: recipientNumber, //my phone number
       body: `Hi Bob, your order is ready for pickup!`
     }).then(() => console.log("Hi Bob, your order is ready for pickup!"))
       .catch((err) => { err.message; });
