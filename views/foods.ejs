@@ -14,11 +14,11 @@
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
+  <script src="/scripts/app.js"></script>
 </head>
 
 <body>
-  <form%- include('partials/_header') %>
+  <%- include('partials/_header') %>
   <h1> main /foods page that the customer sees 🍱</h1>
 
 <h1>Blackbeard's Bar & Grill</h1>
@@ -30,9 +30,9 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nis uisque nibh nulla, lacinia ut augue sit amet, dapibus convallis velit.</p>
     <div>
       <p>$8.99</p>
-      <button class="minus">-</button>
-      <p>1</p>
-      <button class="plus">+</button>
+      <button id="minus">-</button>
+      <p id="quantity"> 1 </p>
+      <button id="plus">+</button>
     </div>
   </span>
   <span>
@@ -43,7 +43,7 @@
   </span>
 </article>
 <!-- have no end point yet, foods/3 is just a placeholder -->
-<form method="POST" action="/foods/3">
+<form method="POST" action="/order_status">
   <h2>Your Cart</h2>
   <table>
     <tr>

@@ -35,11 +35,11 @@ const widgetApiRoutes = require('./routes/widgets-api');
 
 
 //for rendering
-const usersRoutes = require('./routes/users');
+const usersRoutes = require('./routes/users_routes');
 
-const foodsRoutes = require('./routes/foods');
-const cartRoutes = require('./routes/cart');
-const orderStatusRoutes = require('./routes/order_status');
+const foodsRoutes = require('./routes/foods_routes');
+const cartRoutes = require('./routes/cart_routes');
+const orderStatusRoutes = require('./routes/order_status_routes');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -66,3 +66,5 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+
