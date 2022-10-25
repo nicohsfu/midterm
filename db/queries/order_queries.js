@@ -10,9 +10,10 @@ const incrementItem = () => {
 
   return db.query(query)
     .then(data => {
-      console.log("data.rows:", data.rows);
-      return data.rows;
-    });
+      console.log("data.rows[0] for incrementItem:", data.rows[0]);
+      return data.rows[0];
+    })
+    .catch((err) => { err.message; });
 
 };
 
@@ -26,14 +27,13 @@ const decrementItem = () => {
 
   return db.query(query)
     .then(data => {
-      console.log("data.rows:", data.rows);
-      return data.rows;
+      console.log("data.rows[0] for decrementItem:", data.rows[0]);
+      return data.rows[0];
     })
     .catch((err) => { err.message; });
 };
 
 const getPlacedOrders = () => {
-
   const query = `
     SELECT;
     foods.name AS item,
@@ -72,21 +72,3 @@ const placeOrder = () => {
 };
 
 module.exports = { incrementItem, decrementItem, placeOrder, getPlacedOrders };
-
-
-
-// Order placed data
-
-// from foods
-//- id
-// -name
-// -price
-
-// from cart_items
-//- id
-// -quantity
-
-// from orders
-//- id
-// -status
-

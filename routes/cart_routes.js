@@ -16,13 +16,15 @@ router.post('/:cartId/edit', (req, res) => {
     decrementItem()
       .then(data => {
         res.json(data[0]);
-      });
+      })
+      .catch((err) => { err.message; });
   }
   if (req.body.action === 'increment') {
     incrementItem()
       .then(data => {
         res.json(data[0]);
-      });
+      })
+      .catch((err) => { err.message; });
   }
 
 });

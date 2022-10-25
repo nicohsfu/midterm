@@ -6,8 +6,8 @@ const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
 
-// const PORT = process.env.DB_PORT || 8080;
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
+// const PORT = 8080;
 const app = express();
 
 app.set('view engine', 'ejs');

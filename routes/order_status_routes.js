@@ -56,6 +56,7 @@ router.get('/', (req, res) => {
 // POST order_status/
 router.post('/', (req, res) => {
   console.log("Place Order button on foods.ejs got clicked!");
+  placeOrder();
   userReceivesConfirmation();
   adminReceivesOrder();
   res.redirect('/order_status');
