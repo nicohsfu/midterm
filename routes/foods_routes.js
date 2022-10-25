@@ -5,7 +5,7 @@ const {
   editFoods,
   deleteFoods,
   getQuantity
-} = require('../db/queries/foods');
+} = require('../db/queries/foods_queries');
 const router = express.Router();
 
 // test routes for our 5 EJS templates
@@ -17,14 +17,6 @@ router.get('/2', (req, res) => {
   res.render('admin_edit');
 });
 
-router.get('/3', (req, res) => {
-  res.render('admin_orders');
-});
-
-router.post('/3', (req, res) => {
-  console.log("Place Order button on foods.ejs got clicked!");
-  res.render('admin_orders');
-});
 
 router.get('/4', (req, res) => {
 

@@ -1,5 +1,5 @@
 const express = require('express');
-const { incrementItem, decrementItem } = require('../db/queries/order');
+const { incrementItem, decrementItem } = require('../db/queries/order_queries');
 const router = express.Router();
 
 // POST cart/

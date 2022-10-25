@@ -27,7 +27,7 @@ const decrementItem = () => {
 
 const placeOrder = () => {
 
-  const query = `SELECT * FROM cart_items`;
+  const query = `UPDATE orders SET status = 'placed' WHERE id = 1 RETURNING *`;
 
   return db.query(query)
     .then(data => {
