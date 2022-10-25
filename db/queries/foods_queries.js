@@ -3,6 +3,7 @@ const db = require('../connection');
 const getFoods = () => {
   return db.query('SELECT * FROM foods;')
     .then(data => {
+      console.log("menu items: ", data.rows);
       return data.rows;
     });
 };
@@ -22,7 +23,7 @@ const addFoods = (foods) => {
 const editFoods = (foods) => {
 
   const values = [foods.name, foods.description, foods.image_url, foods.price];
-  const query = 'UPDATE foods SET name = $1, description = $2, image_url = $3, price = $4 WHERE id = 1';
+  const query = 'UPDATE foods SET name = $1, description = $2, image_url = $3, price = $4 WHERE id = 1 RETURNING *';
 
   return db.query(query, values)
     .then(data => {
@@ -35,7 +36,7 @@ const deleteFoods = () => {
   // const values = [foods.id];
 
   // make dynamic later
-  const query = 'DELETE FROM foods WHERE id = 3';
+  const query = 'DELETE FROM foods WHERE id = 1';
 
   return db.query(query)
     .then(data => {

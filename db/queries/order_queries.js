@@ -41,7 +41,7 @@ const getPlacedOrders = () => {
 
   return db.query(query)
     .then(data => {
-      console.log('data: ', data.rows);
+      console.log('item currently placed: ', data.rows);
       return data.rows;
     });
 };
