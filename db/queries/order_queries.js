@@ -4,7 +4,7 @@ const incrementItem = () => {
   const query = `
     UPDATE cart_items
     SET quantity = (quantity + 1)
-    WHERE id = 1
+    WHERE (id = 1) AND (quantity > -1)
     RETURNING *;
   `;
 
@@ -21,7 +21,7 @@ const decrementItem = () => {
   const query = `
     UPDATE cart_items
     SET quantity = (quantity - 1)
-    WHERE id = 1
+    WHERE (id = 1) AND (quantity > 0)
     RETURNING *;
   `;
 

@@ -23,22 +23,24 @@ $(() => {
   //   </article>
   // `};
 
-  $('#minus').on('click', () => {
+  $('#minus').on('click', (event) => {
+    event.preventDefault();
     $.post('/cart/1/edit', { action: 'decrement' })
       .then((res) => {
         const quantity = res.quantity;
-          $('#quantity').text(quantity);
+        $('#quantity').text(quantity);
       })
       .catch((err) => { err.message; });
     console.log("decrement clicked");
   });
 
 
-  $('#plus').on('click', () => {
+  $('#plus').on('click', (event) => {
+    event.preventDefault();
     $.post('/cart/1/edit', { action: 'increment' })
       .then(res => {
         const quantity = res.quantity;
-          $("#quantity").text(quantity);
+        $("#quantity").text(quantity);
       })
       .catch((err) => { err.message; });
     console.log("increment clicked");
@@ -46,9 +48,9 @@ $(() => {
 
 
   $('#twilio').on('click', (event) => {
-    console.log("An estimated time has been sent.");
     // prevents page from changing
     event.preventDefault();
+    console.log("An estimated time has been sent.");
     $.ajax({
       url: "/order_status/admin/:order_id",
       method: "POST",
