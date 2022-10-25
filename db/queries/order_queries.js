@@ -24,6 +24,27 @@ const decrementItem = () => {
     });
 };
 
+const getPlacedOrders = () => {
+
+  const query = `
+    SELECT
+      foods.name AS item,
+      quantity,
+      users.name AS name,
+      foods.price AS price
+    FROM cart_items
+    JOIN orders ON orders.id = order_id
+    JOIN foods ON foods.id = food_id
+    JOIN users ON users.id = user_id
+    WHERE orders.status = 'placed'
+  ;`;
+
+  return db.query(query)
+    .then(data => {
+      console.log('data: ', data.rows);
+      return data.rows;
+    });
+};
 
 const placeOrder = () => {
 
@@ -36,4 +57,25 @@ const placeOrder = () => {
     });
 };
 
-module.exports = { incrementItem, decrementItem, placeOrder };
+module.exports = { incrementItem, decrementItem, placeOrder, getPlacedOrders };
+
+
+
+
+
+
+// Order placed data
+
+// from foods
+//- id
+// -name
+// -price
+
+// from cart_items
+//- id
+// -quantity
+
+// from orders
+//- id
+// -status
+
