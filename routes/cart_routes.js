@@ -16,6 +16,7 @@ router.post('/:cartId/edit', (req, res) => {
     decrementItem()
       .then(data => {
         res.json(data[0]);
+        console.log("post decrement working", data[0])
       })
       .catch((err) => { err.message; });
   }
@@ -23,6 +24,7 @@ router.post('/:cartId/edit', (req, res) => {
     incrementItem()
       .then(data => {
         res.json(data[0]);
+        console.log('post increment working', data[0])
       })
       .catch((err) => { err.message; });
   }

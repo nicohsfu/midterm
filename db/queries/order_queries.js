@@ -8,13 +8,13 @@ const incrementItem = () => {
     RETURNING *;
   `;
 
+  // data.rows is returning array instead of object => REMEMBER TO [0]
   return db.query(query)
     .then(data => {
-      console.log("data.rows[0] for incrementItem:", data.rows[0]);
-      return data.rows[0];
+      console.log("data.rows for incrementItem:", data.rows);
+      return data.rows;
     })
     .catch((err) => { err.message; });
-
 };
 
 const decrementItem = () => {
@@ -25,10 +25,11 @@ const decrementItem = () => {
     RETURNING *;
   `;
 
+  // data.rows is returning array instead of object => REMEMBER TO [0]
   return db.query(query)
     .then(data => {
-      console.log("data.rows[0] for decrementItem:", data.rows[0]);
-      return data.rows[0];
+      console.log("data.rows for decrementItem:", data.rows);
+      return data.rows;
     })
     .catch((err) => { err.message; });
 };

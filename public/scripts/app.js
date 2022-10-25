@@ -1,11 +1,33 @@
 // Client facing scripts here
 $(() => {
 
+  //   const createFood = (foods) => {`
+  //   <article id='${foods.id}'>
+  //     <span>
+  //       <h2>${foods.name}</h2>
+  //       <p>${foods.description}</p>
+  //       <div>
+  //         <p>${foods.price}</p>
+  //         <button id="minus">-</button>
+  //         <p id="quantity"> 0 </p>
+  //         <button id="plus">+</button>
+  //       </div>
+  //     </span>
+  //     <span>
+  //       <img
+  //         alt="${foods.name}"
+  //         src="${foods.image_url}"
+  //       >
+  //       </img>
+  //     </span>
+  //   </article>
+  // `};
+
   $('#minus').on('click', () => {
     $.post('/cart/1/edit', { action: 'decrement' })
       .then((res) => {
         const quantity = res.quantity;
-        $('#quantity').text(quantity);
+          $('#quantity').text(quantity);
       })
       .catch((err) => { err.message; });
     console.log("decrement clicked");
@@ -16,10 +38,10 @@ $(() => {
     $.post('/cart/1/edit', { action: 'increment' })
       .then(res => {
         const quantity = res.quantity;
-        $("#quantity").text(quantity);
+          $("#quantity").text(quantity);
       })
       .catch((err) => { err.message; });
-    console.log("i've been clicked");
+    console.log("increment clicked");
   });
 
 
