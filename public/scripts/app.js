@@ -6,7 +6,8 @@ $(() => {
       .then((res) => {
         const quantity = res.quantity;
         $('#quantity').text(quantity);
-      });
+      })
+      .catch((err) => { err.message; });
     console.log("decrement clicked");
   });
 
@@ -15,7 +16,8 @@ $(() => {
       .then(res => {
         const quantity = res.quantity;
         $("#quantity").text(quantity);
-      });
+      })
+      .catch((err) => { err.message; });
     console.log("i've been clicked");
   });
 });

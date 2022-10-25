@@ -12,7 +12,8 @@ const sendCustomerMessage = function() {
     from: '14243378014', //twilio fake number
     to: '16047674603', //my phone number
     body: 'Hi Minha, your order has been successfully placed!!!'
-  }).then(() => console.log("Message successfully sent."));
+  }).then(() => console.log("Message successfully sent."))
+    .catch((err) => { err.message; });
 };
 
 // GET order_status/

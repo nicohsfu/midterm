@@ -28,7 +28,8 @@ const decrementItem = () => {
     .then(data => {
       console.log("data.rows:", data.rows);
       return data.rows;
-    });
+    })
+    .catch((err) => { err.message; });
 };
 
 const getPlacedOrders = () => {
@@ -50,7 +51,8 @@ const getPlacedOrders = () => {
     .then(data => {
       console.log('item currently placed: ', data.rows);
       return data.rows;
-    });
+    })
+    .catch((err) => { err.message; });
 };
 
 const placeOrder = () => {
@@ -65,7 +67,8 @@ const placeOrder = () => {
     .then(data => {
       console.log("data.rows:", data.rows);
       return data.rows;
-    });
+    })
+    .catch((err) => { err.message; });
 };
 
 module.exports = { incrementItem, decrementItem, placeOrder, getPlacedOrders };

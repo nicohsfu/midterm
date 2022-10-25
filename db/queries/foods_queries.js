@@ -5,7 +5,8 @@ const getFoods = () => {
     .then(data => {
       console.log("menu items for getFoods: ", data.rows);
       return data.rows;
-    });
+    })
+    .catch((err) => { err.message; });
 };
 
 const addFoods = (foods) => {
@@ -20,7 +21,8 @@ const addFoods = (foods) => {
     .then(data => {
       console.log("data.rows[0] for addFoods: ", data.rows[0]);
       return data.rows[0];
-    });
+    })
+    .catch((err) => { err.message; });
 };
 
 const editFoods = (foods) => {
@@ -36,7 +38,8 @@ const editFoods = (foods) => {
     .then(data => {
       console.log("data.rows for editFoods: ", data.rows[0]);
       return data.rows[0];
-    });
+    })
+    .catch((err) => { err.message; });
 };
 
 const deleteFoods = () => {
@@ -51,7 +54,8 @@ const deleteFoods = () => {
   return db.query(query)
     .then(data => {
       return data.rows[0];
-    });
+    })
+    .catch((err) => { err.message; });
 };
 
 // move somewhere else eventually
@@ -66,7 +70,8 @@ const getQuantity = () => {
     .then(data => {
       console.log("data.rows[0].quantity for getQuantity", data.rows[0].quantity);
       return data.rows[0].quantity;
-    });
+    })
+    .catch((err) => { err.message; });
 };
 
 module.exports = {
