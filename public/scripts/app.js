@@ -40,10 +40,10 @@ $(() => {
   };
 
 
+  // receive json data from /foods/menu_items
   const loadFoods = function() {
-    $.get('/foods/menu_item', { action: 'getFoods' })
+    $.get('/foods/menu_items', { action: 'getFoods' })
       .then((arr) => {
-        console.log("this is inside load foods");
         console.log("arr in loadfoods:", arr);
         renderFoods(arr);
       })
