@@ -34,8 +34,36 @@ router.get('/5', (req, res) => {
 
 // GET foods/ ✅
 router.get('/', (req, res) => {
-  getFoods();
+  // console.log("GET foods/ is working");
+  // console.log("req.body", req.body);
+  // console.log("req.params", req.params);
+  // console.log("req.query", req.query);
+  //console.log("GET foods/ response: ", res);
+  // if (req.query.action === 'getFoods') {
+  //   console.log("inside the if");
+  //   getFoods()
+  //     .then(foodsArr => {
+  //       console.log("foodsArr", foodsArr);
+  //       console.log("inside the then inside the if");
+  //       // res.render('foods', { foodsArr: foodsArr });
+  //       res.json(foodsArr);
+  //     })
+  //     .catch((err) => { err.message; });
+  // }
+
   res.render('foods');
+});
+
+router.get('/menu_item', (req, res) => {
+  console.log("inside the if");
+  getFoods()
+    .then(foodsArr => {
+      console.log("foodsArr", foodsArr);
+      console.log("inside the then inside the if");
+      // res.render('foods', { foodsArr: foodsArr });
+      res.json(foodsArr);
+    })
+    .catch((err) => { err.message; });
 });
 
 // GET foods/admin
