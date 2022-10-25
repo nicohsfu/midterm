@@ -15,25 +15,6 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
-  <script>
-    $(document).ready(() => {
-      const $button = $('#twilio');
-
-      $button.on('click', (event) => {
-        console.log("it works!!!");
-        // prevents page from changing
-        event.preventDefault();
-
-        $.ajax({
-          url: "/order_status/admin/:order_id",
-          method: "POST",
-        })
-          .catch((error) => {
-            console.log("error message: ", error.message);
-          });
-      });
-    });
-  </script>
 </head>
 
 <body>
