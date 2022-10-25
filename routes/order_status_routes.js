@@ -7,12 +7,30 @@ const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const autoToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, autoToken);
 
-const sendCustomerMessage = function() {
+const adminReceivesOrder = function() {
   client.messages.create({
     from: '14243378014', //twilio fake number
     to: '16047674603', //my phone number
-    body: 'Hi Minha, your order has been successfully placed!!!'
-  }).then(() => console.log("Message successfully sent."))
+    body: 'Hi Admin, Bob has placed an order! Please send them an estimated wait time on your desktop/tablet.'
+  }).then(() => console.log("Hi Admin, Bob has placed an order! Please send them an estimated wait time on your desktop/tablet."))
+    .catch((err) => { err.message; });
+};
+
+const userReceivesOrderConfirmation = function() {
+  client.messages.create({
+    from: '14243378014', //twilio fake number
+    to: '16047674603', //my phone number
+    body: 'Hi Bob, your order has been successfully placed!'
+  }).then(() => console.log("Hi User, your order has been successfully placed!!!"))
+    .catch((err) => { err.message; });
+};
+
+const userReceivesEstimatedTime = function() {
+  client.messages.create({
+    from: '14243378014', //twilio fake number
+    to: '16047674603', //my phone number
+    body: 'Hi Bob, your order will be ready for pickup in 10 minutes.'
+  }).then(() => console.log("Hi Bob, your order will be ready for pickup in 10 minutes."))
     .catch((err) => { err.message; });
 };
 
@@ -25,7 +43,8 @@ router.get('/', (req, res) => {
 // POST order_status/
 router.post('/', (req, res) => {
   console.log("Place Order button on foods.ejs got clicked!");
-  placeOrder();
+  userReceivesOrderConfirmation();
+  adminReceivesOrder();
   res.redirect('/order_status');
 });
 
@@ -38,7 +57,7 @@ router.get('/admin/:order_id', (req, res) => {
 // PATCH order_status/admin/:order_id
 // POST for now though, PATCH as stretch
 router.post('/admin/:order_id', (req, res) => {
-  sendCustomerMessage();
+  userReceivesEstimatedTime();
   res.redirect('/order_status/admin/:order_id');
 });
 
