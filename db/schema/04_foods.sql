@@ -5,5 +5,6 @@ CREATE TABLE foods (
   name VARCHAR(255) NOT NULL,
   description TEXT,
   image_url VARCHAR(255),
-  price INTEGER NOT NULL
+  -- updated price data type from INTEGER to DECIMAL
+  price DECIMAL(10,2) NOT NULL
 );
