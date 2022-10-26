@@ -7,30 +7,66 @@ $(() => {
   let runningPrice = 0;
 
   const createFoodElement = (foods) => {
+
     let $foodArticle = $(`
     <article id='${foods.id}'>
-      <span>
-        <h2>${foods.name}</h2>
-        <p>${foods.description}</p>
-        <div>
-          <p>${foods.price}</p>
-          <button class="minus">-</button>
-          <p class="quantity"> 0 </p>
-          <button class="plus">+</button>
-        </div>
-      </span>
-      <span>
-        <img
-          alt="${foods.name}"
-          src="${foods.image_url}"
-        >
-        </img>
-      </span>
+    <span>
+    <h2>${foods.name}</h2>
+    <p>${foods.description}</p>
+    <div>
+    <p>${foods.price}</p>
+    <div class="button-type">
+    </div>
+    </div>
+    </span>
+    <span>
+    <img
+    alt="${foods.name}"
+    src="${foods.image_url}"
+    >
+    </img>
+    </span>
     </article>
     `);
 
+    // if ($('title').text() === 'Home') {
+    //   let button = `
+    //     <button class="minus">-</button>
+    //       <p class="quantity"> 0 </p>
+    //     <button class="plus">+</button>
+    //   `;
+    //   $('.button-type').append(button);
+    // }
+    // if ($('title').text() === 'Admin - Foods') {
+    //   let button = `
+    //     <form method="GET" action="/foods/admin/:foodId">
+    //       <button>Edit</button>
+    //     </form>
+    //     <form method="POST" action="/foods/admin/:foodId/delete">
+    //       <button>Delete</button>
+    //     </form>
+    // `;
+    //   $('.button-type').append(button);
+    // }
     return $foodArticle;
   };
+
+  // const addButtons = function(foodsArr) {
+  //   $('.button-type').empty();
+
+  //   if ($('#user')) {
+  //     for (let food of foodsArr) {
+  //       let button = `
+  //         <button class="minus">-</button>
+  //           <p class="quantity"> 0 </p>
+  //         <button class="plus">+</button>
+  //       `;
+  //       $('.button-type').prepend(button);
+  //     }
+  //   }
+
+  // };
+
 
   const renderFoods = function(foodsArr) {
     $('.food-card-container').empty();
@@ -39,7 +75,27 @@ $(() => {
 
     for (let food of foodsArr) {
       let newFood = createFoodElement(food);
+      $('.button-type').empty();
       $('.food-card-container').prepend(newFood);
+      if ($('title').text() === 'Home') {
+        let button = `
+          <button class="minus">-</button>
+            <p class="quantity"> 0 </p>
+          <button class="plus">+</button>
+        `;
+        $('.button-type').append(button);
+      }
+      if ($('title').text() === 'Admin - Foods') {
+        let button = `
+          <form method="GET" action="/foods/admin/:foodId">
+            <button>Edit</button>
+          </form>
+          <form method="POST" action="/foods/admin/:foodId/delete">
+            <button>Delete</button>
+          </form>
+      `;
+        $('.button-type').append(button);
+      }
     }
 
     $('.minus').on('click', (event) => {
