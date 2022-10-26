@@ -10,22 +10,22 @@ $(() => {
 
     let $foodArticle = $(`
     <article id='${foods.id}'>
-    <span>
-    <h2>${foods.name}</h2>
-    <p>${foods.description}</p>
-    <div>
-    <p>${foods.price}</p>
-    <div class="button-type">
-    </div>
-    </div>
-    </span>
-    <span>
-    <img
-    alt="${foods.name}"
-    src="${foods.image_url}"
-    >
-    </img>
-    </span>
+      <span>
+        <h2>${foods.name}</h2>
+          <p>${foods.description}</p>
+        <div>
+          <p>${foods.price}</p>
+          <div class="button-type">
+          </div>
+        </div>
+      </span>
+      <span>
+        <img
+          alt="${foods.name}"
+          src="${foods.image_url}"
+        >
+        </img>
+      </span>
     </article>
     `);
 
