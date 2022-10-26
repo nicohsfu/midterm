@@ -1,2 +1,2 @@
 INSERT INTO users (name, phone)
-VALUES ('Alice', '911');
+VALUES ('Bob', '1234567890');

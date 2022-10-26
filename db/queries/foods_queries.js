@@ -1,9 +1,11 @@
 const db = require('../connection');
 
 const getFoods = () => {
-  return db.query('SELECT * FROM foods;')
+  return db.query(`
+    SELECT * FROM foods;
+  `)
     .then(data => {
-      console.log("menu items for getFoods: ", data.rows);
+      // console.log("menu items for getFoods: ", data.rows);
       return data.rows;
     })
     .catch((err) => { err.message; });
@@ -43,10 +45,8 @@ const editFoods = (foods) => {
 };
 
 const deleteFoods = (id) => {
-
   const values = [id];
 
-  // make dynamic later
   const query = `
     DELETE FROM foods
     WHERE id = $1

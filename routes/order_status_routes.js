@@ -9,6 +9,7 @@ const twilioNumber = process.env.TWILIO_FROM;
 const recipientNumber = process.env.TWILIO_TO;
 const client = require('twilio')(accountSid, autoToken);
 
+
 const userReceivesConfirmation = function() {
   client.messages.create({
     from: twilioNumber, //twilio fake number
@@ -18,6 +19,7 @@ const userReceivesConfirmation = function() {
     .catch((err) => { err.message; });
 };
 
+
 const adminReceivesOrder = function() {
   client.messages.create({
     from: twilioNumber, //twilio fake number
@@ -26,6 +28,7 @@ const adminReceivesOrder = function() {
   }).then(() => console.log("Hi Admin, Bob has placed an order! Please send them an estimated wait time on your desktop/tablet."))
     .catch((err) => { err.message; });
 };
+
 
 const userReceivesEstimatedTime = function() {
   const delay = 5;
@@ -46,6 +49,7 @@ const userReceivesEstimatedTime = function() {
       .catch((err) => { err.message; });
   }, delay * 1000);
 };
+
 
 // GET order_status/
 router.get('/', (req, res) => {
@@ -68,9 +72,11 @@ router.get('/', (req, res) => {
     });
 });
 
+
 // POST order_status/
 router.post('/', (req, res) => {
   console.log("Place Order button on foods.ejs got clicked!");
+
   placeOrder();
   userReceivesConfirmation();
   adminReceivesOrder();
@@ -78,9 +84,9 @@ router.post('/', (req, res) => {
   res.redirect('/order_status');
 });
 
+
 // GET order_status/admin/:order_id
 router.get('/admin/:order_id', (req, res) => {
-
   let placedOrders;
 
   getPlacedOrders()
@@ -97,6 +103,7 @@ router.get('/admin/:order_id', (req, res) => {
       res.render('admin_orders', templateVars);
     });
 });
+
 
 // PATCH order_status/admin/:order_id
 // POST for now though, PATCH as stretch

@@ -1,10 +1,7 @@
 const db = require('../connection');
 
 const incrementItem = (id) => {
-
   const values = [id];
-
-  console.log("id: ", id);
 
   const query = `
     UPDATE cart_items
@@ -13,7 +10,6 @@ const incrementItem = (id) => {
     RETURNING *;
   `;
 
-  // data.rows is returning array instead of object => REMEMBER TO [0]
   return db.query(query, values)
     .then(data => {
       console.log("data.rows for incrementItem:", data.rows);
@@ -23,7 +19,6 @@ const incrementItem = (id) => {
 };
 
 const decrementItem = (id) => {
-
   const values = [id];
 
   const query = `
@@ -33,13 +28,6 @@ const decrementItem = (id) => {
     RETURNING *;
   `;
 
-  // const newQuery = `
-  //   SELECT cart_items.*, foods.price
-  //   FROM cart_items
-  //   JOIN foods ON foods.id = food_id;
-  // `;
-
-  // data.rows is returning array instead of object => REMEMBER TO [0]
   return db.query(query, values)
     .then(data => {
       console.log("data.rows for decrementItem:", data.rows);
@@ -48,10 +36,11 @@ const decrementItem = (id) => {
     .catch((err) => { err.message; });
 };
 
+//check if using anywhere
 const getPendingOrders = () => {
   const query = `
     SELECT;
-    foods.name AS item,
+      foods.name AS item,
       quantity,
       users.name AS name,
       foods.price AS price
@@ -73,7 +62,7 @@ const getPendingOrders = () => {
 const getPlacedOrders = () => {
   const query = `
     SELECT
-    foods.name AS item,
+      foods.name AS item,
       quantity,
       users.name AS name,
       foods.price AS price
@@ -108,4 +97,9 @@ const placeOrder = () => {
     .catch((err) => { err.message; });
 };
 
-module.exports = { incrementItem, decrementItem, placeOrder, getPlacedOrders };
+module.exports = {
+  incrementItem,
+  decrementItem,
+  placeOrder,
+  getPlacedOrders
+};

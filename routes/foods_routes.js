@@ -1,4 +1,6 @@
 const express = require('express');
+const router = express.Router();
+
 const {
   getFoods,
   addFoods,
@@ -6,41 +8,19 @@ const {
   deleteFoods,
   getQuantity
 } = require('../db/queries/foods_queries');
+
 const { getPlacedOrders, getOrders: getPendingOrders } = require('../db/queries/order_queries');
-const router = express.Router();
-
-// test routes for our 5 EJS templates
-router.get('/1', (req, res) => {
-  res.render('admin_foods');
-});
-
-router.get('/2', (req, res) => {
-  res.render('admin_edit');
-});
 
 
-router.get('/4', (req, res) => {
-
-  const templateVars = {
-    quantity: getQuantity()
-  };
-
-  res.render('foods', templateVars);
-});
-
-router.get('/5', (req, res) => {
-  res.render('order');
-});
-// -----------
-
-// GET foods/ ✅
+// GET foods/
 router.get('/', (req, res) => {
   res.render('foods');
 });
 
+
 // GET foods/menu_items
 // middle man between backend database and frontend
-// returns json data to loadfoods function
+// returns json data to loadfoods function in app.,
 router.get('/menu_items', (req, res) => {
   getFoods()
     .then(foodsArr => {
@@ -50,19 +30,26 @@ router.get('/menu_items', (req, res) => {
     .catch((err) => { err.message; });
 });
 
+
 // GET foods/admin
 router.get('/admin', (req, res) => {
   res.render('admin_foods');
 });
 
+
 // POST foods/admin
 router.post('/admin', (req, res) => {
   console.log("add button on admin_foods.ejs got clicked!");
-  const newItem = req.body;
-  console.log(req.body);
-  addFoods(newItem);
-  res.redirect('/foods/admin');
+  console.log("req.body name/price/body", req.body.name, req.body.price, req.body.image_url);
+  if (req.body.name !== '' && req.body.price !== '' && req.body.image_url !== '' && req.body.description !== '') {
+    const newItem = req.body;
+    console.log("req.body: ", req.body);
+    addFoods(newItem);
+    res.redirect('/foods/admin');
+  }
+  res.send(`No empty fields please!`);
 });
+
 
 // GET foods/admin/:foodId
 router.get('/admin/:foodId', (req, res) => {
@@ -70,16 +57,6 @@ router.get('/admin/:foodId', (req, res) => {
   res.render('admin_edit');
 });
 
-// PATCH foods/admin/:foodId/edit
-// POST for now though, PATCH as stretch
-router.post('/admin/:foodId/edit', (req, res) => {
-  console.log("save button on admin_edit.ejs was clicked!");
-  const itemId = req.params.foodId;
-  console.log('itemId: ', itemId); // logs 5
-  editFoods(itemId)
-    .catch(err => console.log(err.message));
-  res.redirect('/foods/admin');
-});
 
 // DELETE /foods/admin/:foodid/delete
 // POST for now though, DELETE as stretch
@@ -88,9 +65,23 @@ router.post('/admin/:foodId/delete', (req, res) => {
   const itemId = req.params.foodId;
   console.log('itemId: ', itemId); // logs 5
   deleteFoods(itemId)
-    .catch(err => console.log(err.message));
+  .catch(err => console.log(err.message));
   res.redirect('/foods/admin');
 });
+
+
+// ---------- IMPLEMENT AS STRETCH ----------
+// PATCH foods/admin/:foodId/edit
+// POST for now though, PATCH as stretch
+// router.post('/admin/:foodId/edit', (req, res) => {
+//   console.log("save button on admin_edit.ejs was clicked!");
+//   const itemId = req.params.foodId;
+//   console.log('itemId: ', itemId); // logs 5
+//   editFoods(itemId)
+//     .catch(err => console.log(err.message));
+//   res.redirect('/foods/admin');
+// });
+// ---------- IMPLEMENT AS STRETCH ----------
 
 module.exports = router;
 
