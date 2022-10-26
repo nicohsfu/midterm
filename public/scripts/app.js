@@ -33,7 +33,7 @@ $(() => {
   };
 
 
-  const renderFoods = function(foodsArr) {
+  const renderFoods = function (foodsArr) {
     $('.food-card-container').empty();
 
     console.log("foodsArr:", foodsArr);
@@ -56,7 +56,7 @@ $(() => {
             <button>Edit</button>
           </form>
           <form method="POST" action="/foods/admin/:foodId/delete">
-            <button>Delete</button>
+            <button class='delete'>Delete</button>
           </form>
       `;
         $('.button-type').append(button);
@@ -125,10 +125,35 @@ $(() => {
       console.log("increment clicked");
     });
 
+    $('.delete').on('click', (event) => {
+      // if preventDefault is un-commented, the page does NOT refresh so the food-item deletion is not reflected on the rendered page, even though the food item HAS been deleted
+      //event.preventDefault();
+
+      const foodId = $(event.target).closest('article').attr('id');
+      //console.log('foodId: ', foodId);
+      //console.log("(this) minus: ", $(event.target).closest('article').attr('id'));
+
+      $.post(`/foods/admin/${foodId}/delete`)
+        .catch((err) => { err.message; });
+      console.log("delete button clicked");
+    });
+
+    $('.edit').on('click', (event) => {
+      // if preventDefault is un-commented, the page does NOT refresh so the food-item deletion is not reflected on the rendered page, even though the food item HAS been deleted
+      event.preventDefault();
+      const foodId = $(event.target).closest('article').attr('id');
+      console.log('foodId in edit click event: ', foodId);
+      //console.log('foodId: ', foodId);
+      //console.log("(this) minus: ", $(event.target).closest('article').attr('id'));
+
+      $.post(`/foods/admin/${foodId}/edit`)
+        .catch((err) => { err.message; });
+      console.log("edit button clicked");
+    });
   };
 
   // receive json data from /foods/menu_items
-  const loadFoods = function() {
+  const loadFoods = function () {
     $.get('/foods/menu_items', { action: 'getFoods' })
       .then((arr) => {
         foodData = [...arr];
@@ -151,6 +176,12 @@ $(() => {
       .catch((error) => {
         console.log("error message: ", error.message);
       });
+
+    setTimeout(() => {
+      console.log("5 seconds have passed")
+      $('#targetMe').text('5 years');
+    }, 5000);
+
   });
 
 });

@@ -26,11 +26,11 @@ const addFoods = (foods) => {
 };
 
 const editFoods = (foods) => {
-  const values = [foods.name, foods.description, foods.image_url, foods.price];
+  const values = [foods.name, foods.description, foods.image_url, foods.price, foods.id];
   const query = `
     UPDATE foods
     SET name = $1, description = $2, image_url = $3, price = $4
-    WHERE id = 1
+    WHERE id = $5
     RETURNING *;
   `;
 
@@ -42,16 +42,18 @@ const editFoods = (foods) => {
     .catch((err) => { err.message; });
 };
 
-const deleteFoods = () => {
-  // const values = [foods.id];
+const deleteFoods = (id) => {
+
+  const values = [id];
 
   // make dynamic later
   const query = `
     DELETE FROM foods
-    WHERE id = 1
+    WHERE id = $1
+    RETURNING *;
   `;
 
-  return db.query(query)
+  return db.query(query, values)
     .then(data => {
       return data.rows[0];
     })

@@ -74,16 +74,21 @@ router.get('/admin/:foodId', (req, res) => {
 // POST for now though, PATCH as stretch
 router.post('/admin/:foodId/edit', (req, res) => {
   console.log("save button on admin_edit.ejs was clicked!");
-  const item = req.body;
-  editFoods(item);
+  const itemId = req.params.foodId;
+  console.log('itemId: ', itemId); // logs 5
+  editFoods(itemId)
+    .catch(err => console.log(err.message));
   res.redirect('/foods/admin');
 });
 
 // DELETE /foods/admin/:foodid/delete
 // POST for now though, DELETE as stretch
 router.post('/admin/:foodId/delete', (req, res) => {
-  console.log("delete button on admin_foods.ejs was clicked!");
-  deleteFoods();
+  //console.log("delete button on admin_foods.ejs was clicked!");
+  const itemId = req.params.foodId;
+  console.log('itemId: ', itemId); // logs 5
+  deleteFoods(itemId)
+    .catch(err => console.log(err.message));
   res.redirect('/foods/admin');
 });
 
