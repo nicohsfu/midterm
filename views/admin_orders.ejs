@@ -37,7 +37,7 @@
       </td>
       <td></td>
       <td>
-        <%= placedOrder.price * placedOrder.quantity %>
+        <%= (placedOrder.price * placedOrder.quantity) / 100 %>
       </td>
       </tr>
     <%
@@ -47,7 +47,7 @@
         <td></td>
         <td></td>
         <td>Total:</td>
-        <td id="total">$<%= runningPrice %></td>
+        <td id="total">$<%= runningPrice / 100%></td>
       </tr>
     </table>
 

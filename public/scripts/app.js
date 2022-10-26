@@ -14,7 +14,7 @@ $(() => {
         <h2>${foods.name}</h2>
           <p>${foods.description}</p>
         <div>
-          <p>${foods.price}</p>
+          <p>${foods.price / 100}</p>
           <div class="button-type">
           </div>
         </div>
@@ -79,16 +79,16 @@ $(() => {
           const quantity = res.quantity;
 
           const matchingFoodObj = foodData.find(food => food.id === foodId);
-          const price = matchingFoodObj.price;
-          console.log("res: ", res);
+          const price = parseFloat(matchingFoodObj.price);
+          console.log("price : ", price)
 
           $(`#${foodId}`).find('.quantity').text(quantity);
           $(`#table-${foodId}`).find('.quantity').text(quantity);
-          $(`#table-${foodId}`).find('.price').text((price * quantity));
+          $(`#table-${foodId}`).find('.price').text((price * quantity / 100));
 
           runningPrice -= price;
 
-          $(`#total`).text(runningPrice);
+          $(`#total`).text(`$ ${(runningPrice / 100)}`);
         })
         .catch((err) => { err.message; });
       console.log("decrement clicked");
@@ -108,18 +108,25 @@ $(() => {
           const quantity = res.quantity;
 
           const matchingFoodObj = foodData.find(food => food.id === foodId);
-          const price = matchingFoodObj.price;
+          const price = parseFloat(matchingFoodObj.price);
           console.log("price:", price);
           console.log("res: ", res);
 
 
           $(`#${foodId}`).find('.quantity').text(quantity);
           $(`#table-${foodId}`).find('.quantity').text(quantity);
-          $(`#table-${foodId}`).find('.price').text((price * quantity));
+          $(`#table-${foodId}`).find('.price').text((price * quantity / 100));
+
+          //delete all the consle log later !!
+          console.log("price", price);
+          console.log("typeof parsefloat", typeof price); //number
+          console.log("typeof running price", typeof runningPrice); //number
+          console.log("typeof price", typeof price); //string
+
 
           runningPrice += price;
 
-          $(`#total`).text(runningPrice);
+          $(`#total`).text(`$ ${(runningPrice / 100)}`);
         })
         .catch((err) => { err.message; });
       console.log("increment clicked");
