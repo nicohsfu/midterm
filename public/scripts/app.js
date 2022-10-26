@@ -1,5 +1,10 @@
 // Client facing scripts here
 $(() => {
+  // Fetches all menu items.
+  let foodData = [];
+
+  // Total of the user's cart.
+  let runningPrice = 0;
 
   const createFoodElement = (foods) => {
     let $foodArticle = $(`
@@ -26,7 +31,6 @@ $(() => {
 
     return $foodArticle;
   };
-
 
   const renderFoods = function(foodsArr) {
     $('#food-card-container').empty();
@@ -55,16 +59,19 @@ $(() => {
 
           const matchingFoodObj = foodData.find(food => food.id === foodId);
           const price = matchingFoodObj.price;
-          console.log("price:", price);
+          console.log("res: ", res);
 
           $(`#${foodId}`).find('.quantity').text(quantity);
           $(`#table-${foodId}`).find('.quantity').text(quantity);
-          $(`#table-${foodId}`).find('.price').text(price * quantity);
+          $(`#table-${foodId}`).find('.price').text((price * quantity));
+
+          runningPrice -= price;
+
+          $(`#total`).text(runningPrice);
         })
         .catch((err) => { err.message; });
       console.log("decrement clicked");
     });
-
 
     $('.plus').on('click', (event) => {
       event.preventDefault();
@@ -82,19 +89,22 @@ $(() => {
           const matchingFoodObj = foodData.find(food => food.id === foodId);
           const price = matchingFoodObj.price;
           console.log("price:", price);
+          console.log("res: ", res);
+
 
           $(`#${foodId}`).find('.quantity').text(quantity);
           $(`#table-${foodId}`).find('.quantity').text(quantity);
-          $(`#table-${foodId}`).find('.price').text(price * quantity);
+          $(`#table-${foodId}`).find('.price').text((price * quantity));
+
+          runningPrice += price;
+
+          $(`#total`).text(runningPrice);
         })
         .catch((err) => { err.message; });
       console.log("increment clicked");
     });
 
   };
-
-
-  let foodData = [];
 
   // receive json data from /foods/menu_items
   const loadFoods = function() {
@@ -110,7 +120,6 @@ $(() => {
 
   loadFoods();
 
-
   $('#twilio').on('click', (event) => {
     // prevents page from changing
     event.preventDefault();
@@ -123,5 +132,22 @@ $(() => {
         console.log("error message: ", error.message);
       });
   });
+
+  // const createOrder = () => {
+  //   let $orderArticle = $('#cart').html();
+  //   return $orderArticle;
+  // };
+
+  // const renderOrder = () => {
+  //   $('#cart-container').empty();
+
+  //   let newOrder = createOrder();
+  //   $('#cart-container').prepend(newOrder);
+  // };
+
+  // $('#place-order').on('click', (event) => {
+  //   event.preventDefault();
+  //   renderOrder();
+  // });
 
 });

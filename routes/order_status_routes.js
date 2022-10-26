@@ -50,8 +50,26 @@ const userReceivesEstimatedTime = function() {
 // GET order_status/
 router.get('/', (req, res) => {
   console.log("this should be the order page");
-  res.render('order');
+
+  let placedOrders;
+
+  getPlacedOrders()
+    .then((value) => {
+      placedOrders = value;
+    })
+    .then(() => {
+      const templateVars = {
+        placedOrders,
+        runningPrice: 0
+      };
+
+      console.log('placedOrders routes file: ', placedOrders);
+      res.render('order', templateVars);
+    });
+
 });
+
+
 
 // POST order_status/
 router.post('/', (req, res) => {
@@ -59,6 +77,7 @@ router.post('/', (req, res) => {
   placeOrder();
   userReceivesConfirmation();
   adminReceivesOrder();
+
   res.redirect('/order_status');
 });
 

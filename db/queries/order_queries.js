@@ -54,7 +54,7 @@ const getPendingOrders = () => {
     foods.name AS item,
       quantity,
       users.name AS name,
-        foods.price AS price
+      foods.price AS price
     FROM cart_items
     JOIN orders ON orders.id = order_id
     JOIN foods ON foods.id = food_id
@@ -72,11 +72,11 @@ const getPendingOrders = () => {
 
 const getPlacedOrders = () => {
   const query = `
-    SELECT;
+    SELECT
     foods.name AS item,
       quantity,
       users.name AS name,
-        foods.price AS price
+      foods.price AS price
     FROM cart_items
     JOIN orders ON orders.id = order_id
     JOIN foods ON foods.id = food_id
@@ -108,4 +108,4 @@ const placeOrder = () => {
     .catch((err) => { err.message; });
 };
 
-module.exports = { incrementItem, decrementItem, placeOrder, getPlacedOrders, getOrders: getPendingOrders };
+module.exports = { incrementItem, decrementItem, placeOrder, getPlacedOrders };
