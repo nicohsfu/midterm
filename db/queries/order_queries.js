@@ -1,15 +1,20 @@
 const db = require('../connection');
 
-const incrementItem = () => {
+const incrementItem = (id) => {
+
+  const values = [id];
+
+  console.log("id: ", id);
+
   const query = `
     UPDATE cart_items
     SET quantity = (quantity + 1)
-    WHERE (id = 1) AND (quantity > -1)
+    WHERE (id = $1) AND (quantity > -1)
     RETURNING *;
   `;
 
   // data.rows is returning array instead of object => REMEMBER TO [0]
-  return db.query(query)
+  return db.query(query, values)
     .then(data => {
       console.log("data.rows for incrementItem:", data.rows);
       return data.rows;
@@ -17,16 +22,19 @@ const incrementItem = () => {
     .catch((err) => { err.message; });
 };
 
-const decrementItem = () => {
+const decrementItem = (id) => {
+
+  const values = [id];
+
   const query = `
     UPDATE cart_items
     SET quantity = (quantity - 1)
-    WHERE (id = 1) AND (quantity > 0)
+    WHERE (id = $1) AND (quantity > 0)
     RETURNING *;
   `;
 
   // data.rows is returning array instead of object => REMEMBER TO [0]
-  return db.query(query)
+  return db.query(query, values)
     .then(data => {
       console.log("data.rows for decrementItem:", data.rows);
       return data.rows;

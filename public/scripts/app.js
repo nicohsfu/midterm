@@ -9,9 +9,9 @@ $(() => {
         <p>${foods.description}</p>
         <div>
           <p>${foods.price}</p>
-          <button id="minus">-</button>
-          <p id="quantity"> 0 </p>
-          <button id="plus">+</button>
+          <button class="minus">-</button>
+          <p class="quantity"> 0 </p>
+          <button class="plus">+</button>
         </div>
       </span>
       <span>
@@ -37,6 +37,43 @@ $(() => {
       let newFood = createFoodElement(food);
       $('#food-card-container').prepend(newFood);
     }
+
+    $('.minus').on('click', (event) => {
+      event.preventDefault();
+      const foodId = $(event.target).closest('article').attr('id');
+      console.log("(this) minus: ", $(event.target).closest('article').attr('id'));
+      $.post(`/cart/${foodId}/edit`, { action: 'decrement' })
+        .then((res) => {
+          console.log("inside minus .then");
+          const foodId = res.food_id;
+          console.log(`#${foodId}`);
+          const quantity = res.quantity;
+          $(`#${foodId}`).find('.quantity').text(quantity);
+
+          // $('.quantity').text(quantity);$(event.target).closest('article').attr('id')
+        })
+        .catch((err) => { err.message; });
+      console.log("decrement clicked");
+    });
+
+
+    $('.plus').on('click', (event) => {
+      event.preventDefault();
+      const foodId = $(event.target).closest('article').attr('id');
+      console.log("(this) plus: ", $(event.target).closest('article').attr('id'));
+      $.post(`/cart/${foodId}/edit`, { action: 'increment' })
+        .then(res => {
+
+          const foodId = res.food_id;
+          const quantity = res.quantity;
+          $(`#${foodId}`).find('.quantity').text(quantity);
+          console.log("inside plus .then");
+          //$(".quantity").text(quantity);
+        })
+        .catch((err) => { err.message; });
+      console.log("increment clicked");
+    });
+
   };
 
 
@@ -52,30 +89,6 @@ $(() => {
 
 
   loadFoods();
-
-
-  $('#minus').on('click', (event) => {
-    event.preventDefault();
-    $.post('/cart/1/edit', { action: 'decrement' })
-      .then((res) => {
-        const quantity = res.quantity;
-        $('#quantity').text(quantity);
-      })
-      .catch((err) => { err.message; });
-    console.log("decrement clicked");
-  });
-
-
-  $('#plus').on('click', (event) => {
-    event.preventDefault();
-    $.post('/cart/1/edit', { action: 'increment' })
-      .then(res => {
-        const quantity = res.quantity;
-        $("#quantity").text(quantity);
-      })
-      .catch((err) => { err.message; });
-    console.log("increment clicked");
-  });
 
 
   $('#twilio').on('click', (event) => {

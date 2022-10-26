@@ -12,21 +12,26 @@ router.post('/', (req, res) => {
 // POST for now though, PATCH as stretch
 router.post('/:cartId/edit', (req, res) => {
   console.log("req.body: ", req.body);
+
   if (req.body.action === 'decrement') {
-    decrementItem()
+    console.log("req.params decrement:", req.params); //{ cartId: ':cartId }
+    decrementItem(req.params.cartId)
       .then(data => {
         res.json(data[0]);
-        console.log("post decrement working", data[0])
+        console.log("post decrement working", data[0]);
       })
-      .catch((err) => { err.message; });
+      .catch((err) => { console.log(err.message); });
   }
+
   if (req.body.action === 'increment') {
-    incrementItem()
+    console.log("req.params increment: ", req.params);
+
+    incrementItem(req.params.cartId)
       .then(data => {
         res.json(data[0]);
-        console.log('post increment working', data[0])
+        console.log('post increment working', data[0]);
       })
-      .catch((err) => { err.message; });
+      .catch((err) => { console.log(err.message); });
   }
 
 });
@@ -38,3 +43,23 @@ router.post('/:cartId/delete', (req, res) => {
 });
 
 module.exports = router;
+
+
+// let tweetTextId = $('#tweet-text');
+
+// tweetTextId.on('input', function() {
+//   const charCount = $(this).parent().parent().find('.counter');
+//   const tweetLength = $(this).val().length;
+
+//   let maxLength = 140 - tweetLength;
+//   charCount.text(maxLength);
+
+//   if (maxLength < 0) {
+//     charCount.addClass('redColor');
+//   }
+
+//   if (maxLength >= 0) {
+//     charCount.removeClass('redColor');
+//   }
+
+// });
