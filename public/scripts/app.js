@@ -29,43 +29,8 @@ $(() => {
     </article>
     `);
 
-    // if ($('title').text() === 'Home') {
-    //   let button = `
-    //     <button class="minus">-</button>
-    //       <p class="quantity"> 0 </p>
-    //     <button class="plus">+</button>
-    //   `;
-    //   $('.button-type').append(button);
-    // }
-    // if ($('title').text() === 'Admin - Foods') {
-    //   let button = `
-    //     <form method="GET" action="/foods/admin/:foodId">
-    //       <button>Edit</button>
-    //     </form>
-    //     <form method="POST" action="/foods/admin/:foodId/delete">
-    //       <button>Delete</button>
-    //     </form>
-    // `;
-    //   $('.button-type').append(button);
-    // }
     return $foodArticle;
   };
-
-  // const addButtons = function(foodsArr) {
-  //   $('.button-type').empty();
-
-  //   if ($('#user')) {
-  //     for (let food of foodsArr) {
-  //       let button = `
-  //         <button class="minus">-</button>
-  //           <p class="quantity"> 0 </p>
-  //         <button class="plus">+</button>
-  //       `;
-  //       $('.button-type').prepend(button);
-  //     }
-  //   }
-
-  // };
 
 
   const renderFoods = function(foodsArr) {
@@ -175,22 +140,17 @@ $(() => {
 
   loadFoods();
 
-
-  // const createOrder = () => {
-  //   let $orderArticle = $('#cart').html();
-  //   return $orderArticle;
-  // };
-
-  // const renderOrder = () => {
-  //   $('#cart-container').empty();
-
-  //   let newOrder = createOrder();
-  //   $('#cart-container').prepend(newOrder);
-  // };
-
-  // $('#place-order').on('click', (event) => {
-  //   event.preventDefault();
-  //   renderOrder();
-  // });
+  // sends user an SMS text of their estimated wait time
+  $('#twilio').on('click', (event) => {
+    event.preventDefault();
+    console.log("An estimated time has been sent.");
+    $.ajax({
+      url: "/order_status/admin/:order_id",
+      method: "POST",
+    })
+      .catch((error) => {
+        console.log("error message: ", error.message);
+      });
+  });
 
 });
