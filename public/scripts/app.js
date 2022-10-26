@@ -41,16 +41,25 @@ $(() => {
     $('.minus').on('click', (event) => {
       event.preventDefault();
       const foodId = $(event.target).closest('article').attr('id');
-      console.log("(this) minus: ", $(event.target).closest('article').attr('id'));
+      //console.log("(this) minus: ", $(event.target).closest('article').attr('id'));
+
       $.post(`/cart/${foodId}/edit`, { action: 'decrement' })
         .then((res) => {
-          console.log("inside minus .then");
-          const foodId = res.food_id;
-          console.log(`#${foodId}`);
-          const quantity = res.quantity;
-          $(`#${foodId}`).find('.quantity').text(quantity);
 
-          // $('.quantity').text(quantity);$(event.target).closest('article').attr('id')
+          console.log("foodData:", foodData);
+
+          console.log("inside minus .then");
+
+          const foodId = res.food_id;
+          const quantity = res.quantity;
+
+          const matchingFoodObj = foodData.find(food => food.id === foodId);
+          const price = matchingFoodObj.price;
+          console.log("price:", price);
+
+          $(`#${foodId}`).find('.quantity').text(quantity);
+          $(`#table-${foodId}`).find('.quantity').text(quantity);
+          $(`#table-${foodId}`).find('.price').text(price * quantity);
         })
         .catch((err) => { err.message; });
       console.log("decrement clicked");
@@ -60,15 +69,23 @@ $(() => {
     $('.plus').on('click', (event) => {
       event.preventDefault();
       const foodId = $(event.target).closest('article').attr('id');
-      console.log("(this) plus: ", $(event.target).closest('article').attr('id'));
+      //console.log("(this) plus: ", $(event.target).closest('article').attr('id'));
+
       $.post(`/cart/${foodId}/edit`, { action: 'increment' })
         .then(res => {
 
+          console.log("inside plus .then");
+
           const foodId = res.food_id;
           const quantity = res.quantity;
+
+          const matchingFoodObj = foodData.find(food => food.id === foodId);
+          const price = matchingFoodObj.price;
+          console.log("price:", price);
+
           $(`#${foodId}`).find('.quantity').text(quantity);
-          console.log("inside plus .then");
-          //$(".quantity").text(quantity);
+          $(`#table-${foodId}`).find('.quantity').text(quantity);
+          $(`#table-${foodId}`).find('.price').text(price * quantity);
         })
         .catch((err) => { err.message; });
       console.log("increment clicked");
@@ -77,10 +94,13 @@ $(() => {
   };
 
 
+  let foodData = [];
+
   // receive json data from /foods/menu_items
   const loadFoods = function() {
     $.get('/foods/menu_items', { action: 'getFoods' })
       .then((arr) => {
+        foodData = [...arr];
         console.log("arr in loadfoods:", arr);
         renderFoods(arr);
       })

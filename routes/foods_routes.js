@@ -6,6 +6,7 @@ const {
   deleteFoods,
   getQuantity
 } = require('../db/queries/foods_queries');
+const { getPlacedOrders, getOrders: getPendingOrders } = require('../db/queries/order_queries');
 const router = express.Router();
 
 // test routes for our 5 EJS templates
@@ -34,6 +35,7 @@ router.get('/5', (req, res) => {
 
 // GET foods/ ✅
 router.get('/', (req, res) => {
+
   res.render('foods');
 });
 

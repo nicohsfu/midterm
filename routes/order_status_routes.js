@@ -49,7 +49,7 @@ const userReceivesEstimatedTime = function() {
 
 // GET order_status/
 router.get('/', (req, res) => {
-  console.log("this should be order page");
+  console.log("this should be the order page");
   res.render('order');
 });
 

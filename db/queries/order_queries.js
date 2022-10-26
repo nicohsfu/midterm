@@ -33,10 +33,38 @@ const decrementItem = (id) => {
     RETURNING *;
   `;
 
+  // const newQuery = `
+  //   SELECT cart_items.*, foods.price
+  //   FROM cart_items
+  //   JOIN foods ON foods.id = food_id;
+  // `;
+
   // data.rows is returning array instead of object => REMEMBER TO [0]
   return db.query(query, values)
     .then(data => {
       console.log("data.rows for decrementItem:", data.rows);
+      return data.rows;
+    })
+    .catch((err) => { err.message; });
+};
+
+const getPendingOrders = () => {
+  const query = `
+    SELECT;
+    foods.name AS item,
+      quantity,
+      users.name AS name,
+        foods.price AS price
+    FROM cart_items
+    JOIN orders ON orders.id = order_id
+    JOIN foods ON foods.id = food_id
+    JOIN users ON users.id = user_id
+    WHERE orders.status = 'pending';
+  `;
+
+  return db.query(query)
+    .then(data => {
+      console.log('item currently pending: ', data.rows);
       return data.rows;
     })
     .catch((err) => { err.message; });
@@ -80,4 +108,4 @@ const placeOrder = () => {
     .catch((err) => { err.message; });
 };
 
-module.exports = { incrementItem, decrementItem, placeOrder, getPlacedOrders };
+module.exports = { incrementItem, decrementItem, placeOrder, getPlacedOrders, getOrders: getPendingOrders };

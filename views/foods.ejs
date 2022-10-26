@@ -20,16 +20,16 @@
 <body>
   <%- include('partials/_header') %>
 
-  <h1> main /foods page that the customer sees - template 4 of 5</h1>
+    <h1> main /foods page that the customer sees - template 4 of 5</h1>
 
-  <h1>Blackbeard's Bar & Grill</h1>
-  <p>2022 Lighthouse St.</p>
+    <h1>Blackbeard's Bar & Grill</h1>
+    <p>2022 Lighthouse St.</p>
 
-  <!-- dynamic food "card" -->
-  <section id="food-card-container">
-  </section>
+    <!-- dynamic food "card" -->
+    <section id="food-card-container">
+    </section>
 
-  <!-- <article>
+    <!-- <article>
     <span>
       <h2>Garlic Bread</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nis uisque nibh nulla, lacinia ut augue sit amet,
@@ -50,43 +50,54 @@
     </span>
   </article> -->
 
-  <!-- have no end point yet, foods/3 is just a placeholder -->
-  <form method="POST" action="/order_status">
-    <h2>Your Cart</h2>
-    <table>
-      <tr>
-        <td>Burrito</td>
-        <td>x1</td>
-        <td>14.99</td>
-      </tr>
-      <tr>
-        <td>Carbonara</td>
-        <td>x2</td>
-        <td>37.98</td>
-      </tr>
-      <tr>
-        <td>Milkshake</td>
-        <td>x1</td>
-        <td>9.99</td>
-      </tr>
-      <tr>
-        <td>Cake</td>
-        <td>x2</td>
-        <td>21.98</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td>Total: $82.94</td>
-      </tr>
-    </table>
+    <!-- have no end point yet, foods/3 is just a placeholder -->
+    <form method="POST" action="/order_status">
+      <h2>Your Cart</h2>
+      <table>
+        <tr id="table-5">
+          <td>Hawaiian Pizza</td>
+          <td class="quantity">0</td>
+          <td></td>
+          <td class="price">0</td>
+        </tr>
+        <tr id="table-4">
+          <td>Carbonara</td>
+          <td class="quantity">0</td>
+          <td></td>
+          <td class="price">0</td>
+        </tr>
+        <tr id="table-3" >
+          <td>Scallop Risotto</td>
+          <td class="quantity">0</td>
+          <td></td>
+          <td class="price">0</td>
+        </tr>
+        <tr id="table-2">
+          <td>Caesar Salad</td>
+          <td class="quantity">0</td>
+          <td></td>
+          <td class="price">0</td>
+        </tr>
+        <tr id="table-1">
+          <td>Garlic</td>
+          <td class="quantity">0</td>
+          <td></td>
+          <td class="price">0</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>Total:</td>
+          <td id="total">0</td>
+        </tr>
+      </table>
 
-    <p>Your satisfaction awaits, <strong>Bob.</strong></p>
+      <p>Your satisfaction awaits, <strong>Bob.</strong></p>
 
-    <button>
-      Place Order
-    </button>
-  </form>
+      <button>
+        Place Order
+      </button>
+    </form>
 
 </body>
 
