@@ -66,10 +66,7 @@ router.get('/', (req, res) => {
       console.log('placedOrders routes file: ', placedOrders);
       res.render('order', templateVars);
     });
-
 });
-
-
 
 // POST order_status/
 router.post('/', (req, res) => {
@@ -83,8 +80,19 @@ router.post('/', (req, res) => {
 
 // GET order_status/admin/:order_id
 router.get('/admin/:order_id', (req, res) => {
-  getPlacedOrders();
-  res.render('admin_orders');
+  getPlacedOrders()
+    .then((value) => {
+      placedOrders = value;
+    })
+    .then(() => {
+      const templateVars = {
+        placedOrders,
+        runningPrice: 0
+      };
+
+      console.log('placedOrders routes file: ', placedOrders);
+      res.render('admin_orders', templateVars);
+    });
 });
 
 // PATCH order_status/admin/:order_id

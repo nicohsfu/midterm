@@ -23,44 +23,33 @@
   <h4>admin_orders.ejs template - template 3 of 5</h4>
 
   <h2>Incoming order from Bob</h2>
-  <table>
-    <tr>
-      <td>Hawaiian Pizza</td>
-      <td>x1</td>
+
+    <%- console.log('placedOrders in template file: ', placedOrders); %>
+
+    <table>
+    <% for (let placedOrder of placedOrders) { %>
+        <tr id=' <% placedOrder.id %>'>
+      <td>
+        <%= placedOrder.item %>
+      </td>
+      <td class="quantity">
+        <%= placedOrder.quantity %>
+      </td>
       <td></td>
-      <td>1799</td>
-    </tr>
-    <tr>
-      <td>Carbonara</td>
-      <td>x2</td>
-      <td></td>
-      <td>1899</td>
-    </tr>
-    <tr>
-      <td>Scallop Risotto</td>
-      <td>x1</td>
-      <td></td>
-      <td>2199</td>
-    </tr>
-    <tr>
-      <td>Caesar Salad</td>
-      <td>x2</td>
-      <td></td>
-      <td>1399</td>
-    </tr>
-    <tr>
-      <td>Garlic</td>
-      <td>x2</td>
-      <td></td>
-      <td>1399</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td>Total:</td>
-      <td>$82.94</td>
-    </tr>
-  </table>
+      <td>
+        <%= placedOrder.price * placedOrder.quantity %>
+      </td>
+      </tr>
+    <%
+      runningPrice += placedOrder.price * placedOrder.quantity
+    } %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>Total:</td>
+        <td id="total">$<%= runningPrice %></td>
+      </tr>
+    </table>
 
   <p>Let <strong>Bob</strong> know how long until satisfaction.</p>
 
