@@ -33,13 +33,13 @@ $(() => {
   };
 
   const renderFoods = function(foodsArr) {
-    $('#food-card-container').empty();
+    $('.food-card-container').empty();
 
     console.log("foodsArr:", foodsArr);
 
     for (let food of foodsArr) {
       let newFood = createFoodElement(food);
-      $('#food-card-container').prepend(newFood);
+      $('.food-card-container').prepend(newFood);
     }
 
     $('.minus').on('click', (event) => {
@@ -117,21 +117,8 @@ $(() => {
       .catch((err) => { err.message; });
   };
 
-
   loadFoods();
 
-  $('#twilio').on('click', (event) => {
-    // prevents page from changing
-    event.preventDefault();
-    console.log("An estimated time has been sent.");
-    $.ajax({
-      url: "/order_status/admin/:order_id",
-      method: "POST",
-    })
-      .catch((error) => {
-        console.log("error message: ", error.message);
-      });
-  });
 
   // const createOrder = () => {
   //   let $orderArticle = $('#cart').html();

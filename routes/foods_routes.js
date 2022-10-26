@@ -35,7 +35,6 @@ router.get('/5', (req, res) => {
 
 // GET foods/ ✅
 router.get('/', (req, res) => {
-
   res.render('foods');
 });
 
@@ -53,7 +52,6 @@ router.get('/menu_items', (req, res) => {
 
 // GET foods/admin
 router.get('/admin', (req, res) => {
-  getFoods();
   res.render('admin_foods');
 });
 

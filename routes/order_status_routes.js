@@ -80,6 +80,9 @@ router.post('/', (req, res) => {
 
 // GET order_status/admin/:order_id
 router.get('/admin/:order_id', (req, res) => {
+
+  let placedOrders;
+
   getPlacedOrders()
     .then((value) => {
       placedOrders = value;
