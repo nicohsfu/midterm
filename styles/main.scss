@@ -163,12 +163,12 @@ textarea {
 }
 
 article {
-  // border: 3px solid green;
+  border: 3px solid green;
   margin-bottom: 2.3rem;
 }
 
 .food-card-article {
-  //border: 3px solid rgb(160, 61, 206);
+  border: 3px solid rgb(160, 61, 206);
   display: flex;
   flex-direction: row;
   border-radius: 1.25rem;
@@ -430,6 +430,24 @@ footer {
 // BREAKPOINTS BELOW
 
 @media only screen and (max-width: 1400px) {
+  .navbar {
+    padding-left: 3.3rem;
+    padding-right: 3.3rem;
+  }
+
+  .nav-tab-spacing {
+    background-color: aqua;
+    color: red;
+    display: none;
+  }
+
+  .burger-icon {
+    display: block;
+  }
+}
+
+
+@media only screen and (max-width: 1000px) {
 
   .food-card-article {
     display: flex;
@@ -448,35 +466,10 @@ footer {
     }
   }
 
-  .navbar {
-    padding-left: 3.3rem;
-    padding-right: 3.3rem;
-  }
-
-  .nav-tab-spacing {
-    background-color: aqua;
-    color: red;
-    display: none;
-  }
-
-  .burger-icon {
-    display: block;
-  }
-
-
   #admin-orders {
     padding: 4rem;
     min-width: 50rem;
   }
-
-}
-
-@media only screen and (max-width: 900px) {
-
-  // test
-  // .navbar {
-  //   background-color: coral;
-  // }
 
   .add-form-fields {
     flex-direction: column;
@@ -499,43 +492,85 @@ footer {
     text-align: center;
   }
 
-}
-
-@media only screen and (max-width: 600px) {
-
-  .food-card-info {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .add-form {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .food-card-image {
-    img {
-      border-radius: 1.25rem 1.25rem 0 0;
-    }
-  }
-
-  .cart-place-order-button {
-    width: 100%
-  }
-
   main {
     padding-left: 5%;
     padding-right: 5%;
   }
 
-  #admin-orders {
-    padding: 4rem;
-    min-width: 31rem;
-    padding: 1rem 1rem;
-  }
-
-  .admin-orders-quantity {
-    text-align: center;
-  }
-
 }
+
+
+
+// @media only screen and (max-width: 900px) {
+
+//   // test
+//   // .navbar {
+//   //   background-color: coral;
+//   // }
+
+//   .add-form-fields {
+//     flex-direction: column;
+//   }
+
+//   .name-price-url {
+//     margin-right: 0;
+//   }
+
+//   .description-add-button {
+//     margin-left: 0;
+//   }
+
+//   #admin-orders {
+//     padding: 4rem;
+//     min-width: 37rem;
+//   }
+
+//   .admin-orders-quantity {
+//     text-align: center;
+//   }
+
+//   main {
+//     padding-left: 5%;
+//     padding-right: 5%;
+//   }
+
+// }
+
+// @media only screen and (max-width: 600px) {
+
+//   .food-card-info {
+//     padding-left: 2rem;
+//     padding-right: 2rem;
+//   }
+
+//   .add-form {
+//     padding-left: 2rem;
+//     padding-right: 2rem;
+//   }
+
+//   .food-card-image {
+//     img {
+//       border-radius: 1.25rem 1.25rem 0 0;
+//     }
+//   }
+
+//   .cart-place-order-button {
+//     width: 100%
+//   }
+
+//   main {
+//     padding-left: 5%;
+//     padding-right: 5%;
+//   }
+
+//   #admin-orders {
+//     padding: 4rem;
+//     min-width: 31rem;
+//     padding: 1rem 1rem;
+//   }
+
+//   .admin-orders-quantity {
+//     text-align: center;
+//   }
+
+// }
