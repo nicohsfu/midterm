@@ -6,10 +6,12 @@ $logo-font-size: 2.3rem;
 $logo-font-family: 'Fredoka', sans-serif;
 $logo-font-weight: bold;
 $h1: 3rem;
+$height: 360px;
+$admin-font-family: 'roboto', sans-serif;
 
 .navbar {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -17,6 +19,8 @@ $h1: 3rem;
   height: $nav-height;
   background-color: $teal;
   color: white;
+  padding-left: 20rem;
+  padding-right: 20rem;
 
   a {
     margin-left: 2rem;
@@ -29,11 +33,21 @@ $h1: 3rem;
     color: white;
   }
 
+  a:visited {
+    color: white;
+  }
+
   a:hover {
     text-decoration: underline;
   }
 
+  a:active {
+    color: white;
+  }
+
   #logo-font {
+    border: 3px solid rgb(81, 65, 224);
+
     font-family: $logo-font-family;
     font-size: $logo-font-size;
     font-weight: $logo-font-weight;
@@ -46,7 +60,7 @@ $h1: 3rem;
 }
 
 .restaurant-title {
-  font-size: 16px;
+  font-size: 64px;
 }
 
 .add-form {
@@ -133,10 +147,11 @@ textarea {
 }
 
 .address {
+  color: #999999;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-content: center;
   margin-bottom: 2.3rem;
 
   i {
@@ -150,20 +165,19 @@ article {
 }
 
 .food-card-article {
-  // border: 3px solid rgb(160, 61, 206);
+  border: 3px solid rgb(160, 61, 206);
   display: flex;
   flex-direction: row;
   border-radius: 1.25rem;
   background-color: $aqua;
   color: white;
-  // max-height: 18rem;
+  height: $height;
 }
 
 .food-card-info {
-  // border: 3px solid rgb(224, 240, 81);
+  border: 3px solid rgb(224, 240, 81);
   display: flex;
   flex-direction: column;
-  width: 60%;
 
   justify-content: center;
   // justify-content: space-evenly;
@@ -172,6 +186,8 @@ article {
   padding-right: 5rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
+
+  width: 50%;
 }
 
 .food-card-info-1 {
@@ -220,6 +236,7 @@ article {
 }
 
 .restaurant-name {
+  color: #4E4E4E;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -311,10 +328,10 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
-  height: 2rem;
+  height: 3rem;
 
   .devs {
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
   }
 }
 
@@ -326,10 +343,86 @@ footer {
   display: none;
 }
 
+#admin-orders {
+  display: flex;
+  flex-direction: column;
+  // justify-content: flex-end;
+  // align-items: center;
+  padding: 2.4rem 8.5rem;
+  font-family: $admin-font-family;
+  color: white;
+  background-color: #4E4E4E;
+  border-radius: 1rem;
+  min-width: 64rem;
+  min-height: 33rem;
+}
+
+.admin-orders-title {
+  font-weight: bold;
+  font-size: 2.3rem;
+}
+
+.admin-orders-tb {
+  // margin-top: 4.25rem;
+  width: 100%;
+  border-bottom: 1px solid white;
+  margin-bottom: 1rem;
+}
+
+.admin-order-item {
+  margin-bottom: 5rem;
+}
+
+.admin-orders-quantity {
+  width: 15rem;
+}
+
+.admin-orders-price {
+  text-align: right;
+}
+.admin-orders-foodname {
+  font-size: 1.4rem;
+  padding-bottom: 1rem;
+}
+
+.admin-orders-bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-content: space-evenly;
+}
+
+.admin-orders-total {
+  font-size: 1.5rem;
+  margin-right: 9.4rem;
+}
+
+.admin-orders-total-price {
+  font-size: 1.5rem;
+}
+
+.admin-orders-p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3.7rem;
+  margin-bottom: 2.2rem;
+  font-size: 1.5rem;
+}
+
+.btn-primary {
+  background-color: #0085A2;
+  height: 2.4rem;
+  font-size: 1.5rem;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 // BREAKPOINTS BELOW
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1400px) {
 
   .food-card-article {
     display: flex;
@@ -348,6 +441,11 @@ footer {
     }
   }
 
+  .navbar {
+    padding-left: 3.3rem;
+    padding-right: 3.3rem;
+  }
+
   .nav-tab-spacing {
     background-color: aqua;
     color: red;
@@ -356,6 +454,12 @@ footer {
 
   .burger-icon {
     display: block;
+  }
+
+
+  #admin-orders {
+    padding: 4rem;
+    min-width: 50rem;
   }
 
 }
@@ -377,6 +481,15 @@ footer {
 
   .description-add-button {
     margin-left: 0;
+  }
+
+  #admin-orders {
+    padding: 4rem;
+    min-width: 37rem;
+  }
+
+  .admin-orders-quantity {
+    text-align: center;
   }
 
 }
@@ -410,6 +523,16 @@ footer {
   main {
     padding-left: 5%;
     padding-right: 5%;
+  }
+
+  #admin-orders {
+    padding: 4rem;
+    min-width: 31rem;
+    padding: 1rem 1rem;
+  }
+
+  .admin-orders-quantity {
+    text-align: center;
   }
 
 }
