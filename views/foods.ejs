@@ -17,11 +17,24 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
 
+  <!-- ALL EJS SHARE THESE -->
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/_global-variables.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/nav.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
+
+  <!-- EJS SPECIFIC -->
+  <link rel="stylesheet" href="/styles/restaurant-title.css" />
+  <link rel="stylesheet" href="/styles/food-card.css" />
+  <link rel="stylesheet" href="/styles/your-cart.css" />
+
+  <!-- EXTERNAL STUFF  -->
   <script src="https://kit.fontawesome.com/e21136580c.js" crossorigin="anonymous"></script>
   <script src="/vendor/jquery-3.0.0.js"></script>
+
+  <!-- EXTERNAL JS -->
   <script src="/scripts/app.js"></script>
 </head>
 
@@ -97,7 +110,7 @@
             <tr id="cart-total">
               <td></td>
               <td></td>
-              <td class="align-right total-column">Total:</td>
+              <td class="align-right-total total-column">Total:</td>
               <td id="total">0</td>
             </tr>
           </table>

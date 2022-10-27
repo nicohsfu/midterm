@@ -1,0 +1,107 @@
+@import '_global-variables';
+
+.food-card-article {
+  //border: 3px solid rgb(160, 61, 206);
+  display: flex;
+  flex-direction: row;
+  border-radius: 1.25rem;
+  background-color: $aqua;
+  color: white;
+}
+
+.food-card-info {
+  //border: 3px solid rgb(224, 240, 81);
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  // justify-content: space-evenly;
+
+  padding-left: 5rem;
+  padding-right: 5rem;
+  //padding-top: 2rem;
+  //padding-bottom: 2rem;
+
+  width: 50%;
+}
+
+.food-card-info-1 {
+  // border: 3px solid blue;
+}
+
+.food-card-info-2 {
+  // border: 3px solid blue;
+}
+
+.food-card-info-3 {
+  // border: 3px solid rgb(148, 173, 5);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  p {
+    font-size: 1.26rem;
+    font-weight: 500;
+  }
+}
+
+.delete {
+  color: white;
+  font-weight: 500;
+  font-size: 1.26rem;
+  background-color: $dark-teal;
+  border-radius: 0.5rem;
+  border: none;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.food-card-image {
+  // border: 3px solid blue;
+  width: 50%;
+  display: flex;
+  align-items: center;
+
+  img {
+    min-width: 100%;
+    max-width: 100%;
+    max-height: auto;
+    border-radius: 0 1.25rem 1.25rem 0;
+  }
+}
+
+.minus,
+.plus {
+  color: white;
+  font-weight: 500;
+  font-size: 1.26rem;
+  background-color: $dark-teal;
+  border-radius: 0.5rem;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+}
+
+.minus,
+.plus,
+.delete {
+  transition-duration: 0.2s;
+}
+
+.delete:hover {
+  background-color: $red;
+}
+
+.minus:hover,
+.plus:hover {
+  background-color: $teal;
+}
+
+.button-type {
+  // border: 3px solid red;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  width: 8rem;
+  justify-content: space-evenly;
+}

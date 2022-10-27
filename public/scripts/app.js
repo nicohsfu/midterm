@@ -1,9 +1,6 @@
 // Client facing scripts here
 $(() => {
 
-  // Hide empty fields error message for admin foods page when adding new items.
-  $('#empty-fields').hide();
-
   // Hides cart items until items are added to cart.
   $('.all-cart-rows').hide();
   $('#place-order').hide();
