@@ -22,7 +22,8 @@ $height: 360px;
   background-color: $teal;
   color: white;
 
-  a, span {
+  a,
+  span {
     margin-left: 2rem;
     font-size: 1.5rem;
     margin-right: 2rem;
@@ -219,8 +220,7 @@ article {
   // border: 3px solid blue;
 }
 
-.food-card-info-2 {
-}
+.food-card-info-2 {}
 
 .food-card-info-3 {
   // border: 3px solid rgb(148, 173, 5);
@@ -279,7 +279,9 @@ article {
   height: 2rem;
 }
 
-.minus, .plus, .delete {
+.minus,
+.plus,
+.delete {
   transition-duration: 0.2s;
 }
 
@@ -287,7 +289,8 @@ article {
   background-color: $red;
 }
 
-.minus:hover, .plus:hover {
+.minus:hover,
+.plus:hover {
   background-color: $teal;
 }
 
@@ -309,6 +312,7 @@ article {
   color: white;
   border-radius: 1.25rem;
   margin-bottom: 2.3rem;
+  padding-top: 2.5rem;
   padding-bottom: 2.5rem;
   padding-left: 5rem;
   padding-right: 5rem;
@@ -319,6 +323,7 @@ article {
   // border: 3px solid blue;
   width: 100%;
   justify-content: center;
+  margin-bottom: 1.5rem;
 
   .cart {
     // border: 3px solid rgb(21, 198, 60);
@@ -337,10 +342,20 @@ article {
   text-align: right;
 }
 
-.price,
-.quantity {
+.price{
+  // border: 3px solid rgb(198, 21, 124);
+  width: 35%;
+}
+
+.quantity,
+.total-column {
   // border: 3px solid rgb(21, 198, 60);
   width: 10%;
+}
+
+.cart-item-name{
+  // border: 3px solid rgb(193, 233, 83);
+  width: 45%;
 }
 
 th,
@@ -415,6 +430,7 @@ footer {
   text-align: right;
   font-size: 1.4rem;
 }
+
 .admin-orders-foodname {
   font-size: 1.4rem;
   font-weight: 500;
@@ -437,7 +453,8 @@ footer {
   font-size: 1.4rem;
 }
 
-.admin-orders-p, .admin-orders-p-pressed {
+.admin-orders-p,
+.admin-orders-p-pressed {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -541,80 +558,8 @@ footer {
     padding-right: 5%;
   }
 
+  .food-card-info {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
 }
-
-
-
-// @media only screen and (max-width: 900px) {
-
-//   // test
-//   // .navbar {
-//   //   background-color: coral;
-//   // }
-
-//   .add-form-fields {
-//     flex-direction: column;
-//   }
-
-//   .name-price-url {
-//     margin-right: 0;
-//   }
-
-//   .description-add-button {
-//     margin-left: 0;
-//   }
-
-//   #admin-orders {
-//     padding: 4rem;
-//     min-width: 37rem;
-//   }
-
-//   .admin-orders-quantity {
-//     text-align: center;
-//   }
-
-//   main {
-//     padding-left: 5%;
-//     padding-right: 5%;
-//   }
-
-// }
-
-// @media only screen and (max-width: 600px) {
-
-//   .food-card-info {
-//     padding-left: 2rem;
-//     padding-right: 2rem;
-//   }
-
-//   .add-form {
-//     padding-left: 2rem;
-//     padding-right: 2rem;
-//   }
-
-//   .food-card-image {
-//     img {
-//       border-radius: 1.25rem 1.25rem 0 0;
-//     }
-//   }
-
-//   .cart-place-order-button {
-//     width: 100%
-//   }
-
-//   main {
-//     padding-left: 5%;
-//     padding-right: 5%;
-//   }
-
-//   #admin-orders {
-//     padding: 4rem;
-//     min-width: 31rem;
-//     padding: 1rem 1rem;
-//   }
-
-//   .admin-orders-quantity {
-//     text-align: center;
-//   }
-
-// }
