@@ -1,13 +1,14 @@
+$dark-teal: #035365;
 $teal: #0085A2;
 $aqua: #6298A4;
 $grey: #4E4E4E;
 $nav-height: 5.7rem;
 $logo-font-size: 2.3rem;
 $logo-font-family: 'Fredoka', sans-serif;
+$admin-font-family: 'roboto', sans-serif;
 $logo-font-weight: bold;
 $h1: 2.5rem;
 $height: 360px;
-$admin-font-family: 'roboto', sans-serif;
 
 .navbar {
   display: flex;
@@ -20,10 +21,14 @@ $admin-font-family: 'roboto', sans-serif;
   background-color: $teal;
   color: white;
 
-  a {
+  a, span {
     margin-left: 2rem;
     font-size: 1.5rem;
     margin-right: 2rem;
+  }
+
+  a {
+    font-weight: 500;
   }
 
   a:link {
@@ -51,6 +56,15 @@ $admin-font-family: 'roboto', sans-serif;
     font-weight: $logo-font-weight;
     color: white;
   }
+
+  .fa-circle {
+    color: #C85F5F;
+    font-size: x-small;
+    margin-left: 0px;
+    position: absolute;
+    top: 1.9rem;
+  }
+
 }
 
 .spacer {
@@ -214,7 +228,7 @@ article {
   color: white;
   font-weight: 500;
   font-size: 1.26rem;
-  background-color: #035365;
+  background-color: $dark-teal;
   border-radius: 0.5rem;
   border: none;
   padding-left: 2rem;
