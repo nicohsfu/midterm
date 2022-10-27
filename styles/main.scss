@@ -46,7 +46,7 @@ $admin-font-family: 'roboto', sans-serif;
   }
 
   #logo-font {
-    border: 3px solid rgb(81, 65, 224);
+    //border: 3px solid rgb(81, 65, 224);
 
     font-family: $logo-font-family;
     font-size: $logo-font-size;
@@ -61,6 +61,9 @@ $admin-font-family: 'roboto', sans-serif;
 
 .restaurant-title {
   font-size: 64px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .add-form {
@@ -165,17 +168,16 @@ article {
 }
 
 .food-card-article {
-  border: 3px solid rgb(160, 61, 206);
+  //border: 3px solid rgb(160, 61, 206);
   display: flex;
   flex-direction: row;
   border-radius: 1.25rem;
   background-color: $aqua;
   color: white;
-  height: $height;
 }
 
 .food-card-info {
-  border: 3px solid rgb(224, 240, 81);
+  //border: 3px solid rgb(224, 240, 81);
   display: flex;
   flex-direction: column;
 
@@ -195,7 +197,6 @@ article {
 }
 
 .food-card-info-2 {
-  // border: 3px solid rgb(201, 57, 230);
 }
 
 .food-card-info-3 {
