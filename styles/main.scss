@@ -261,7 +261,7 @@ article {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  width: 25%;
+  width: 8rem;
   justify-content: space-evenly;
 }
 
@@ -343,6 +343,11 @@ footer {
 .burger-icon {
   font-size: 2rem;
   display: none;
+}
+
+.admin-incoming-order-cart {
+  height: 50%;
+  margin-bottom: 7rem;
 }
 
 #admin-orders {
@@ -497,10 +502,6 @@ footer {
 }
 
 @media only screen and (max-width: 600px) {
-
-  .food-card-info-3 {
-    flex-direction: column;
-  }
 
   .food-card-info {
     padding-left: 2rem;
