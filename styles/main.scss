@@ -163,12 +163,12 @@ textarea {
 }
 
 article {
-  border: 3px solid green;
+  //border: 3px solid green;
   margin-bottom: 2.3rem;
 }
 
 .food-card-article {
-  border: 3px solid rgb(160, 61, 206);
+  //border: 3px solid rgb(160, 61, 206);
   display: flex;
   flex-direction: row;
   border-radius: 1.25rem;
@@ -317,10 +317,6 @@ th,
 
 footer {
   // border: 3px solid rgb(21, 198, 60);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
   background-color: $teal;
   color: white;
   position: absolute;
@@ -357,8 +353,7 @@ footer {
 }
 
 .admin-orders-title {
-  font-weight: bold;
-  font-size: 2.3rem;
+  margin-bottom: 0%;
 }
 
 .admin-orders-tb {
@@ -374,13 +369,16 @@ footer {
 
 .admin-orders-quantity {
   width: 15rem;
+  font-size: 1.4rem;
 }
 
 .admin-orders-price {
   text-align: right;
+  font-size: 1.4rem;
 }
 .admin-orders-foodname {
   font-size: 1.4rem;
+  font-weight: 500;
   padding-bottom: 1rem;
 }
 
@@ -391,12 +389,13 @@ footer {
 }
 
 .admin-orders-total {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
   margin-right: 9.4rem;
 }
 
 .admin-orders-total-price {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .admin-orders-p {
@@ -416,6 +415,10 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+.btn-primary:hover {
+  background-color: #035365;
 }
 
 
@@ -456,6 +459,10 @@ footer {
     img {
       border-radius: 1.25rem 1.25rem 0 0;
     }
+  }
+
+  #place-order {
+    width: 100%;
   }
 
   #admin-orders {
