@@ -16,26 +16,6 @@ $(() => {
 
   // Makes individual menu item on rendered home page.
   const createFoodElement = (foods) => {
-
-    //     <article id='${foods.id}'>
-    //   <span>
-    //     <h2>${foods.name}</h2>
-    //       <p>${foods.description}</p>
-    //     <div>
-    //       <p>${foods.price / 100}</p>
-    //       <div class="button-type">
-    //       </div>
-    //     </div>
-    //   </span>
-    //   <span>
-    //     <img
-    //       alt="${foods.name}"
-    //       src="${foods.image_url}"
-    //     >
-    //     </img>
-    //   </span>
-    // </article>
-
     let $foodArticle = $(`
     <article id='${foods.id}'>
       <div class="food-card-article">

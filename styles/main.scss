@@ -5,7 +5,7 @@ $nav-height: 5.7rem;
 $logo-font-size: 2.3rem;
 $logo-font-family: 'Fredoka', sans-serif;
 $logo-font-weight: bold;
-$h1: 3rem;
+$h1: 2.5rem;
 $height: 360px;
 $admin-font-family: 'roboto', sans-serif;
 
@@ -92,6 +92,7 @@ $admin-font-family: 'roboto', sans-serif;
 
 h1 {
   font-size: $h1;
+  margin-top: 16px;
 }
 
 .add-form-fields {
@@ -186,8 +187,8 @@ article {
 
   padding-left: 5rem;
   padding-right: 5rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  //padding-top: 2rem;
+  //padding-bottom: 2rem;
 
   width: 50%;
 }
@@ -237,7 +238,7 @@ article {
 }
 
 .restaurant-name {
-  color: #4E4E4E;
+  color: $grey;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -317,10 +318,13 @@ th,
 
 footer {
   // border: 3px solid rgb(21, 198, 60);
+  display: flex;
+  justify-content: center;
   background-color: $teal;
   color: white;
   position: absolute;
   width: 100%;
+  min-width: 450px;
   text-align: center;
   height: 5vh;
 
@@ -472,6 +476,11 @@ footer {
 
   .add-form-fields {
     flex-direction: column;
+  }
+
+  #add {
+    width: 100%;
+    margin-bottom: 2rem;
   }
 
   .name-price-url {
