@@ -12,24 +12,50 @@ $(() => {
 
   // Makes individual menu item on rendered home page.
   const createFoodElement = (foods) => {
+
+    //     <article id='${foods.id}'>
+    //   <span>
+    //     <h2>${foods.name}</h2>
+    //       <p>${foods.description}</p>
+    //     <div>
+    //       <p>${foods.price / 100}</p>
+    //       <div class="button-type">
+    //       </div>
+    //     </div>
+    //   </span>
+    //   <span>
+    //     <img
+    //       alt="${foods.name}"
+    //       src="${foods.image_url}"
+    //     >
+    //     </img>
+    //   </span>
+    // </article>
+
     let $foodArticle = $(`
     <article id='${foods.id}'>
-      <span>
-        <h2>${foods.name}</h2>
-          <p>${foods.description}</p>
-        <div>
-          <p>${foods.price / 100}</p>
-          <div class="button-type">
+      <div class="food-card-article">
+        <span class="food-card-info">
+          <div class="food-card-info-1">
+            <h1>${foods.name}</h1>
           </div>
-        </div>
-      </span>
-      <span>
-        <img
-          alt="${foods.name}"
-          src="${foods.image_url}"
-        >
-        </img>
-      </span>
+          <div class="food-card-info-2">
+            <p>${foods.description}</p>
+          </div>
+          <div class="food-card-info-3">
+            <p>$${foods.price / 100}</p>
+            <div class="button-type">
+            </div>
+          </div>
+        </span>
+        <span class="food-card-image">
+          <img
+            alt="${foods.name}"
+            src="${foods.image_url}"
+          >
+          </img>
+        </span>
+      </div>
     </article>
     `);
 
@@ -49,9 +75,9 @@ $(() => {
 
       if ($('title').text() === 'Home') {
         let button = `
-          <button class="minus">-</button>
-            <p class="quantity"> 0 </p>
-          <button class="plus">+</button>
+          <span><button class="minus">-</button></span>
+            <span><p class="quantity"> 0 </p></span>
+          <span><button class="plus">+</button></span>
         `;
         $('.button-type').append(button);
       }
@@ -68,7 +94,7 @@ $(() => {
           <form method="POST" action="/foods/admin/:foodId/delete">
             <button class='delete'>Delete</button>
           </form>
-      `;
+        `;
         $('.button-type').append(button);
       }
     }

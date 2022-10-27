@@ -2,5 +2,18 @@
 
 body,
 html {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   margin: 0;
 }
+
+main {
+  padding-left: 17%;
+  padding-right: 17%;
+}
+
+// $borderColor : rgb(0, 195, 255);
+
+// #testSelector {
+//   border: 3px solid $borderColor;
+// }

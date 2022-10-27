@@ -1,18 +1,415 @@
-body {
+$teal: #0085A2;
+$aqua: #6298A4;
+$grey: #4E4E4E;
+$nav-height: 5.7rem;
+$logo-font-size: 2.3rem;
+$logo-font-family: 'Fredoka', sans-serif;
+$logo-font-weight: bold;
+$h1: 3rem;
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+
+  height: $nav-height;
+  background-color: $teal;
+  color: white;
+
+  a {
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    margin-right: 2rem;
+  }
+
+  a:link {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  #logo-font {
+    font-family: $logo-font-family;
+    font-size: $logo-font-size;
+    font-weight: $logo-font-weight;
+    color: white;
+  }
+}
+
+.spacer {
+  padding-top: 8rem;
+}
+
+.restaurant-title {
+  font-size: 16px;
+}
+
+.add-form {
+  // border: 3px solid red;
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  color: white;
+  background-color: $grey;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  border-radius: 1.25rem;
+  margin-bottom: 2.3rem;
+}
+
+.form-header {
+  // border: 3px solid rgb(238, 208, 76);
+  flex-direction: row;
+  align-self: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+h1 {
+  font-size: $h1;
+}
+
+.add-form-fields {
+  // border: 3px solid rgb(81, 65, 224);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.name-price-url {
+  // border: 3px solid green;
+  width: 100%;
+  margin-right: 4rem;
+}
+
+.description-add-button {
+  // border: 3px solid orange;
+  width: 100%;
+  margin-left: 4rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  border-radius: 0.44rem;
+  border: none;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+}
+
+input {
+  height: 1.94rem;
+}
+
+textarea {
+  resize: none;
+  height: 5.5rem;
+}
+
+.form-text {
+  color: white;
+  font-weight: 500;
+  font-size: 1.26rem;
+}
+
+.form-button {
+  color: white;
+  font-weight: 500;
+  font-size: 1.26rem;
+  background-color: $teal;
+  border-radius: 0.5rem;
+  border: none;
+  padding-left: 3.12rem;
+  padding-right: 3.12rem;
+}
+
+.address {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  margin-bottom: 2.3rem;
 
-  background: rgb(163, 208, 219);
-  background: linear-gradient(
-    227deg,
-    rgba(163, 208, 219, 1) 0%,
-    rgba(163, 176, 219, 1) 20%,
-    rgba(163, 173, 219, 1) 34%,
-    rgba(163, 219, 208, 1) 59%,
-    rgba(163, 208, 219, 1) 74%,
-    rgba(163, 208, 219, 1) 100%
-  );
+  i {
+    font-size: 2rem;
+  }
+}
+
+article {
+  // border: 3px solid green;
+  margin-bottom: 2.3rem;
+}
+
+.food-card-article {
+  // border: 3px solid rgb(160, 61, 206);
+  display: flex;
+  flex-direction: row;
+  border-radius: 1.25rem;
+  background-color: $aqua;
+  color: white;
+  // max-height: 18rem;
+}
+
+.food-card-info {
+  // border: 3px solid rgb(224, 240, 81);
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+
+  justify-content: center;
+  // justify-content: space-evenly;
+
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.food-card-info-1 {
+  // border: 3px solid blue;
+}
+
+.food-card-info-2 {
+  // border: 3px solid rgb(201, 57, 230);
+}
+
+.food-card-info-3 {
+  // border: 3px solid rgb(148, 173, 5);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  p {
+    font-size: 1.26rem;
+    font-weight: 500;
+  }
+}
+
+.delete {
+  color: white;
+  font-weight: 500;
+  font-size: 1.26rem;
+  background-color: #035365;
+  border-radius: 0.5rem;
+  border: none;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.food-card-image {
+  // border: 3px solid blue;
+  width: 50%;
+  display: flex;
+  align-items: center;
+
+  img {
+    min-width: 100%;
+    max-width: 100%;
+    max-height: auto;
+    border-radius: 0 1.25rem 1.25rem 0;
+  }
+}
+
+.restaurant-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: -5rem;
+}
+
+.minus,
+.plus {
+  color: white;
+  font-weight: 500;
+  font-size: 1.26rem;
+  background-color: #035365;
+  border-radius: 0.5rem;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+}
+
+.button-type {
+  // border: 3px solid red;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  width: 25%;
+  justify-content: space-evenly;
+}
+
+.your-cart-form {
+  // border: 3px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $grey;
+  color: white;
+  border-radius: 1.25rem;
+  margin-bottom: 2.3rem;
+  padding-bottom: 2.5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.your-cart-running-totals {
+  display: flex;
+  // border: 3px solid blue;
+  width: 100%;
+  justify-content: center;
+
+  .cart {
+    // border: 3px solid rgb(21, 198, 60);
+    width: 100%;
+  }
+
+}
+
+.align-right {
+  // border: 3px solid rgb(21, 198, 60);
+  text-align: right;
+}
+
+.price,
+#total {
+  text-align: right;
+}
+
+.price,
+.quantity {
+  // border: 3px solid rgb(21, 198, 60);
+  width: 10%;
+}
+
+th,
+.cart-item-name,
+.align-right,
+#total {
+  font-weight: 500;
+}
+
+footer {
+  // border: 3px solid rgb(21, 198, 60);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  background-color: $teal;
+  color: white;
+  position: relative;
+  // position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 2rem;
+
+  .devs {
+    margin-top: 0.5rem;
+  }
+}
+
+#testt {
+  color: white;
+}
+
+.burger-icon {
+  display: none;
+}
+
+
+// BREAKPOINTS BELOW
+
+@media only screen and (max-width: 1250px) {
+
+  .food-card-article {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .food-card-info {
+    width: 100%;
+  }
+
+  .food-card-image {
+    width: 100%;
+
+    img {
+      border-radius: 1.25rem 1.25rem 0 0;
+    }
+  }
+
+  .nav-tab-spacing {
+    background-color: aqua;
+    color: red;
+    display: none;
+  }
+
+  .burger-icon {
+    display: block;
+  }
+
+}
+
+@media only screen and (max-width: 900px) {
+
+  // test
+  // .navbar {
+  //   background-color: coral;
+  // }
+
+  .add-form-fields {
+    flex-direction: column;
+  }
+
+  .name-price-url {
+    margin-right: 0;
+  }
+
+  .description-add-button {
+    margin-left: 0;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+  .food-card-info-3 {
+    flex-direction: column;
+  }
+
+  .food-card-info {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .add-form {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .food-card-image {
+    img {
+      border-radius: 1.25rem 1.25rem 0 0;
+    }
+  }
+
+  .cart-place-order-button {
+    width: 100%
+  }
+
+  main {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
 }
