@@ -1,0 +1,134 @@
+@import '_global-variables';
+
+
+.spacer {
+  padding-top: 8rem;
+}
+
+.form-header {
+  flex-direction: row;
+  align-self: flex-start;
+  margin-bottom: 1.25rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 16px;
+}
+
+.form-button {
+  color: white;
+  font-weight: 500;
+  font-size: 1.26rem;
+  background-color: #0085A2;
+  border-radius: 0.5rem;
+  border: none;
+  padding-left: 3.12rem;
+  padding-right: 3.12rem;
+  transition-duration: 0.2s;
+}
+
+.form-button:hover {
+  background-color: #035365;
+}
+
+article {
+  margin-bottom: 2.3rem;
+}
+
+.admin-orders {
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem 5rem;
+  font-family: "roboto", sans-serif;
+  color: white;
+  background-color: #4E4E4E;
+  border-radius: 1rem;
+  min-width: 64rem;
+  min-height: 33rem;
+}
+
+.admin-orders-title {
+  margin-bottom: 0%;
+}
+
+.admin-orders-tb {
+  width: 100%;
+  border-bottom: 1px solid white;
+  margin-bottom: 1rem;
+}
+
+.admin-order-item {
+  margin-bottom: 5rem;
+}
+
+.admin-orders-quantity {
+  width: 15rem;
+  font-size: 1.4rem;
+}
+
+.admin-orders-price {
+  text-align: right;
+  font-size: 1.4rem;
+}
+
+.admin-orders-foodname {
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding-bottom: 1rem;
+}
+
+.admin-orders-bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-content: space-evenly;
+}
+
+.admin-orders-total {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-right: 9.4rem;
+}
+
+.admin-orders-total-price {
+  font-size: 1.4rem;
+}
+
+.admin-orders-p,
+.admin-orders-p-pressed {
+  display: flex;
+  align-items: center;
+  font-family: "roboto", sans-serif;
+  justify-content: center;
+  margin-top: 3.7rem;
+  margin-bottom: 2.2rem;
+  font-size: 1.4rem;
+}
+
+.btn-primary {
+  background-color: #0085A2;
+  height: 2.4rem;
+  font-size: 1.4rem;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background-color: #035365;
+}
+
+#targetMe {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.admin-orders-main {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+strong {
+  display: inline !important;
+}
