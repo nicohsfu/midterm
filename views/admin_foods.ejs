@@ -37,21 +37,24 @@
       <div class="add-form-fields">
         <div class="name-price-url">
           <input
+            type="text"
             name="name"
             placeholder="eg. Mushroom Burger"
+            required
           />
           <p class="form-text"> Name</p>
           <input
-            placeholder="eg. $14.99"
+            placeholder="eg. 1499 (in cents)"
             type="number"
-            min="1"
             name="price"
+            required
           />
           <p class="form-text"> Price</p>
           <input
             type="url"
             name="image_url"
             placeholder="eg. https://yourimage.url/"
+            required
           />
           <p class="form-text"> Image URL</p>
         </div>
@@ -64,13 +67,12 @@
             <p class="form-text"> Description</p>
           </div>
           <div>
-            <button type="submit" class="form-button" id="add">Add</button>
+            <button type="submit" class="form-button add-new-item-button" id="add">Add</button>
           </div>
         </div>
       </div>
     </form>
 
-    <p id="empty-fields">No empty fields please!</p>
 
     <section class="food-card-container" id="admin">
     </section>

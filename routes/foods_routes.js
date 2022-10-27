@@ -41,13 +41,11 @@ router.get('/admin', (req, res) => {
 router.post('/admin', (req, res) => {
   console.log("add button on admin_foods.ejs got clicked!");
   console.log("req.body name/price/body", req.body.name, req.body.price, req.body.image_url);
-  if (req.body.name !== '' && req.body.price !== '' && req.body.image_url !== '' && req.body.description !== '') {
-    const newItem = req.body;
-    console.log("req.body: ", req.body);
-    addFoods(newItem);
-    res.redirect('/foods/admin');
-  }
-  res.send(`No empty fields please!`);
+  const newItem = req.body;
+  console.log("req.body: ", req.body);
+  addFoods(newItem);
+  res.redirect('/foods/admin');
+
 });
 
 

@@ -266,5 +266,13 @@ $(() => {
     $(this).siblings('.admin-orders-p-pressed').slideDown();
   });
 
+  $('.btn-group').on('click', function(event) {
+    console.log("i've been clicked");
+    event.preventDefault();
+    $('.fa-circle').hide();
+    $(this).slideUp();
+    $(this).siblings('.admin-orders-p').slideUp();
+    $(this).siblings('.admin-orders-p-pressed').slideDown();
+  });
 });
 
