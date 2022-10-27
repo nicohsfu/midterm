@@ -2,6 +2,7 @@ $dark-teal: #035365;
 $teal: #0085A2;
 $aqua: #6298A4;
 $grey: #4E4E4E;
+$red: #C85F5F;
 $nav-height: 5.7rem;
 $logo-font-size: 2.3rem;
 $logo-font-family: 'Fredoka', sans-serif;
@@ -58,7 +59,7 @@ $height: 360px;
   }
 
   .fa-circle {
-    color: #C85F5F;
+    color: $red;
     font-size: x-small;
     margin-left: 0px;
     position: absolute;
@@ -160,6 +161,11 @@ textarea {
   border: none;
   padding-left: 3.12rem;
   padding-right: 3.12rem;
+  transition-duration: 0.2s;
+}
+
+.form-button:hover {
+  background-color: $dark-teal;
 }
 
 .address {
@@ -262,11 +268,23 @@ article {
   color: white;
   font-weight: 500;
   font-size: 1.26rem;
-  background-color: #035365;
+  background-color: $dark-teal;
   border-radius: 0.5rem;
   border: none;
   width: 2rem;
   height: 2rem;
+}
+
+.minus, .plus, .delete {
+  transition-duration: 0.2s;
+}
+
+.delete:hover {
+  background-color: $red;
+}
+
+.minus:hover, .plus:hover {
+  background-color: $teal;
 }
 
 .button-type {
@@ -425,7 +443,7 @@ footer {
 }
 
 .btn-primary {
-  background-color: #0085A2;
+  background-color: $teal;
   height: 2.4rem;
   font-size: 1.5rem;
   border: none;
@@ -435,7 +453,7 @@ footer {
 }
 
 .btn-primary:hover {
-  background-color: #035365;
+  background-color: $dark-teal;
 }
 
 
