@@ -6,8 +6,7 @@ const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
 
-const PORT = process.env.PORT || 8081;
-// const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -32,8 +31,6 @@ app.use(express.static('public'));
 
 //for database
 const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
-
 
 //for rendering
 const usersRoutes = require('./routes/users_routes');
@@ -46,7 +43,6 @@ const orderStatusRoutes = require('./routes/order_status_routes');
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 
 app.use('/foods', foodsRoutes);
@@ -60,7 +56,6 @@ app.use('/order_status', orderStatusRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  // res.render('index');
   res.redirect('foods');
 });
 

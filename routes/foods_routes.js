@@ -1,26 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-const {
-  getFoods,
-  addFoods,
-  editFoods,
-  deleteFoods,
-  getQuantity
-} = require('../db/queries/foods_queries');
-
-const { getPlacedOrders, getOrders: getPendingOrders } = require('../db/queries/order_queries');
+const { getFoods, addFoods, deleteFoods, } = require('../db/queries/foods_queries');
 
 
 // GET foods/
+// Home page for user
 router.get('/', (req, res) => {
   res.render('foods');
 });
 
-
 // GET foods/menu_items
 // middle man between backend database and frontend
-// returns json data to loadfoods function in app.,
+// returns json data to loadfoods function in app.js
 router.get('/menu_items', (req, res) => {
   getFoods()
     .then(foodsArr => {
@@ -30,31 +22,27 @@ router.get('/menu_items', (req, res) => {
     .catch((err) => { err.message; });
 });
 
-
 // GET foods/admin
+// Home page for admin
 router.get('/admin', (req, res) => {
   res.render('admin_foods');
 });
 
-
 // POST foods/admin
 router.post('/admin', (req, res) => {
   console.log("add button on admin_foods.ejs got clicked!");
-  console.log("req.body name/price/body", req.body.name, req.body.price, req.body.image_url);
-  const newItem = req.body;
   console.log("req.body: ", req.body);
+
+  const newItem = req.body;
   addFoods(newItem);
   res.redirect('/foods/admin');
-
 });
-
 
 // GET foods/admin/:foodId
 router.get('/admin/:foodId', (req, res) => {
   console.log("edit button on admin_foods.ejs got clicked!");
   res.render('admin_edit');
 });
-
 
 // DELETE /foods/admin/:foodid/delete
 // POST for now though, DELETE as stretch
@@ -63,7 +51,7 @@ router.post('/admin/:foodId/delete', (req, res) => {
   const itemId = req.params.foodId;
   console.log('itemId: ', itemId); // logs 5
   deleteFoods(itemId)
-  .catch(err => console.log(err.message));
+    .catch(err => console.log(err.message));
   res.redirect('/foods/admin');
 });
 
@@ -80,6 +68,7 @@ router.post('/admin/:foodId/delete', (req, res) => {
 //   res.redirect('/foods/admin');
 // });
 // ---------- IMPLEMENT AS STRETCH ----------
+
 
 module.exports = router;
 

@@ -1,5 +1,9 @@
 @import '_global-variables';
 
+.food-card-image {
+  padding-right: 0;
+}
+
 .spacer {
   padding-top: 8rem;
 }
@@ -129,133 +133,4 @@ article {
 #targetMe {
   margin: 3rem 0;
   text-align: center;
-}
-
-// BREAKPOINTS BELOW
-
-@media only screen and (max-width: 1400px) {
-  .navbar {
-    justify-content: space-between;
-    padding-left: 3.3rem;
-    padding-right: 3.3rem;
-  }
-
-  .nav-tab-spacing {
-    background-color: aqua;
-    color: red;
-    display: none;
-  }
-
-  .burger-icon {
-    display: block;
-  }
-
-  #admin-orders {
-    // padding: 2.4rem 8.5rem;
-    min-width: 50rem;
-  }
-
-}
-
-
-@media only screen and (max-width: 1000px) {
-
-  .food-card-article {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-
-  .food-card-info {
-    width: 100%;
-  }
-
-  .food-card-image {
-    width: 100%;
-
-    img {
-      border-radius: 1.25rem 1.25rem 0 0;
-    }
-  }
-
-  #place-order {
-    width: 100%;
-  }
-
-  #admin-orders {
-    padding: 4rem;
-    min-width: 50rem;
-  }
-
-  .add-form-fields {
-    flex-direction: column;
-  }
-
-  #add {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  .name-price-url {
-    margin-right: 0;
-  }
-
-  .description-add-button {
-    margin-left: 0;
-  }
-
-  #admin-orders {
-    padding: 2.4rem 5rem;
-    min-width: 25rem;
-    margin-bottom: 4rem;
-  }
-
-  main.admin-incoming-order-cart {
-    margin-bottom: 3rem;
-  }
-
-  .admin-order-item {
-    margin-bottom: 3rem;
-  }
-
-  #targetMe {
-    margin: 1.5rem 0;
-  }
-
-  .btn-primary {
-    // font-size: 1.4rem;
-    padding: 0.3rem 0.1rem;
-  }
-
-
-  .admin-orders-p {
-    word-break: keep-all;
-  }
-
-  .btn-primary {
-    background-color: #0085A2;
-    height: 2.4rem;
-    font-size: 1.5rem;
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .admin-orders-foodname {
-    padding-right: 2rem;
-  }
-
-  .admin-orders-total {
-    margin-right: 8.5rem;
-  }
-
-  main {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
-  .food-card-info {
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
 }

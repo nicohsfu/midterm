@@ -1,16 +1,15 @@
 const express = require('express');
-const { incrementItem, decrementItem } = require('../db/queries/order_queries');
 const router = express.Router();
+
+const { incrementItem, decrementItem } = require('../db/queries/order_queries');
 
 
 // PATCH cart/:cartId/edit
-// POST for now though, PATCH as stretch
+// Make edits to quantity in cart
 router.post('/:cartId/edit', (req, res) => {
   console.log("req.body: ", req.body);
 
   if (req.body.action === 'decrement') {
-    //console.log("req.params decrement:", req.params); //{ cartId: ':cartId }
-
     decrementItem(req.params.cartId)
       .then(data => {
         res.json(data[0]);
@@ -20,8 +19,6 @@ router.post('/:cartId/edit', (req, res) => {
   }
 
   if (req.body.action === 'increment') {
-    console.log("req.params increment: ", req.params);
-
     incrementItem(req.params.cartId)
       .then(data => {
         res.json(data[0]);
