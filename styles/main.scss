@@ -6,10 +6,11 @@ $logo-font-size: 2.3rem;
 $logo-font-family: 'Fredoka', sans-serif;
 $logo-font-weight: bold;
 $h1: 3rem;
+$height: 360px;
 
 .navbar {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -17,6 +18,8 @@ $h1: 3rem;
   height: $nav-height;
   background-color: $teal;
   color: white;
+  padding-left: 20rem;
+  padding-right: 20rem;
 
   a {
     margin-left: 2rem;
@@ -29,11 +32,21 @@ $h1: 3rem;
     color: white;
   }
 
+  a:visited {
+    color: white;
+  }
+
   a:hover {
     text-decoration: underline;
   }
 
+  a:active {
+    color: white;
+  }
+
   #logo-font {
+    border: 3px solid rgb(81, 65, 224);
+
     font-family: $logo-font-family;
     font-size: $logo-font-size;
     font-weight: $logo-font-weight;
@@ -46,7 +59,7 @@ $h1: 3rem;
 }
 
 .restaurant-title {
-  font-size: 16px;
+  font-size: 64px;
 }
 
 .add-form {
@@ -133,10 +146,11 @@ textarea {
 }
 
 .address {
+  color: #999999;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-content: center;
   margin-bottom: 2.3rem;
 
   i {
@@ -150,20 +164,19 @@ article {
 }
 
 .food-card-article {
-  // border: 3px solid rgb(160, 61, 206);
+  border: 3px solid rgb(160, 61, 206);
   display: flex;
   flex-direction: row;
   border-radius: 1.25rem;
   background-color: $aqua;
   color: white;
-  // max-height: 18rem;
+  height: $height;
 }
 
 .food-card-info {
-  // border: 3px solid rgb(224, 240, 81);
+  border: 3px solid rgb(224, 240, 81);
   display: flex;
   flex-direction: column;
-  width: 60%;
 
   justify-content: center;
   // justify-content: space-evenly;
@@ -172,6 +185,8 @@ article {
   padding-right: 5rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
+
+  width: 50%;
 }
 
 .food-card-info-1 {
@@ -220,6 +235,7 @@ article {
 }
 
 .restaurant-name {
+  color: #4E4E4E;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -311,10 +327,10 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
-  height: 2rem;
+  height: 3rem;
 
   .devs {
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
   }
 }
 
@@ -329,7 +345,7 @@ footer {
 
 // BREAKPOINTS BELOW
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1400px) {
 
   .food-card-article {
     display: flex;
@@ -346,6 +362,11 @@ footer {
     img {
       border-radius: 1.25rem 1.25rem 0 0;
     }
+  }
+
+  .navbar {
+    padding-left: 3.3rem;
+    padding-right: 3.3rem;
   }
 
   .nav-tab-spacing {
