@@ -363,8 +363,12 @@ footer {
   height: 5vh;
 
   .devs {
+<<<<<<< HEAD
     font-size: small;
     margin-top: 0.6rem;
+=======
+    margin-top: 1rem;
+>>>>>>> order-status-css-2
   }
 }
 
@@ -382,7 +386,7 @@ footer {
   flex-direction: column;
   // justify-content: flex-end;
   // align-items: center;
-  padding: 2.4rem 8.5rem;
+  padding: 2.4rem 5rem;
   font-family: $admin-font-family;
   color: white;
   background-color: #4E4E4E;
@@ -415,6 +419,7 @@ footer {
   text-align: right;
   font-size: 1.4rem;
 }
+
 .admin-orders-foodname {
   font-size: 1.4rem;
   font-weight: 500;
@@ -437,7 +442,12 @@ footer {
   font-size: 1.4rem;
 }
 
+<<<<<<< HEAD
 .admin-orders-p, .admin-orders-p-pressed {
+=======
+
+.admin-orders-p {
+>>>>>>> order-status-css-2
   display: flex;
   align-items: center;
   justify-content: center;
@@ -456,10 +466,17 @@ footer {
   justify-content: center;
 }
 
+<<<<<<< HEAD
 .btn-primary:hover {
   background-color: $dark-teal;
 }
 
+=======
+#targetMe {
+  margin: 3rem 0;
+  text-align: center;
+}
+>>>>>>> order-status-css-2
 
 // BREAKPOINTS BELOW
 
@@ -479,6 +496,12 @@ footer {
   .burger-icon {
     display: block;
   }
+
+  #admin-orders {
+    // padding: 2.4rem 8.5rem;
+    min-width: 50rem;
+  }
+
 }
 
 
@@ -501,6 +524,7 @@ footer {
     }
   }
 
+<<<<<<< HEAD
   #place-order {
     width: 100%;
   }
@@ -510,6 +534,8 @@ footer {
     min-width: 50rem;
   }
 
+=======
+>>>>>>> order-status-css-2
   .add-form-fields {
     flex-direction: column;
   }
@@ -528,12 +554,49 @@ footer {
   }
 
   #admin-orders {
-    padding: 4rem;
-    min-width: 37rem;
+    padding: 2.4rem 5rem;
+    min-width: 25rem;
+    margin-bottom: 4rem;
   }
 
-  .admin-orders-quantity {
-    text-align: center;
+  main.admin-incoming-order-cart {
+    margin-bottom: 3rem;
+  }
+
+  .admin-order-item {
+    margin-bottom: 3rem;
+  }
+
+  #targetMe {
+    margin: 1.5rem 0;
+  }
+
+  .btn-primary {
+    // font-size: 1.4rem;
+    padding: 0.3rem 0.1rem;
+  }
+
+
+  .admin-orders-p {
+    word-break: keep-all;
+  }
+
+  .btn-primary {
+    background-color: #0085A2;
+    height: 2.4rem;
+    font-size: 1.5rem;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .admin-orders-foodname {
+    padding-right: 2rem;
+  }
+
+  .admin-orders-total {
+    margin-right: 8.5rem;
   }
 
   main {
