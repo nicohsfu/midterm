@@ -49,7 +49,7 @@
         <table class="admin-orders-tb">
           <div class="admin-order-item">
             <% for (let placedOrder of placedOrders) { %>
-            <tr id=" <% placedOrder.id %>">
+            <tr id=" <% placedOrder.id %>" class="table-<% placedOrder.id %>">
               <td class="admin-orders-foodname"><%= placedOrder.item %></td>
               <td class="quantity admin-orders-quantity">
                 x<%= placedOrder.quantity %>

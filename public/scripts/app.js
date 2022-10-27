@@ -4,6 +4,10 @@ $(() => {
   // Hide empty fields error message for admin foods page when adding new items.
   $('#empty-fields').hide();
 
+  // Hides cart items until items are added to cart.
+  $('.all-cart-rows').hide();
+  $('#place-order').hide();
+
   // Menu items fetched will be kept in this array.
   let foodData = [];
 
@@ -99,6 +103,7 @@ $(() => {
       }
     }
 
+
     // Decrement quantity of an item in the cart.
     let $minusButton = $('.minus');
     $minusButton.on('click', (event) => {
@@ -118,18 +123,31 @@ $(() => {
           const quantity = res.quantity;
           const matchingFoodObj = foodData.find(food => food.id === foodId);
           const price = parseFloat(matchingFoodObj.price);
-          console.log("price : ", price)
+          const $tableId = $(`.table-${foodId}`);
+          //console.log("price : ", price)
+
 
           $(`#${foodId}`).find('.quantity').text(quantity);
-          $(`#table-${foodId}`).find('.quantity').text(quantity);
-          $(`#table-${foodId}`).find('.price').text((price * quantity / 100));
+          $tableId.find('.quantity').text(quantity);
+          $tableId.find('.price').text((price * quantity / 100));
+
+          if ($(`#${foodId}`).find('.quantity').text() === '0') {
+            console.log('quantity (minus): ', $(`#${foodId}`).find('.quantity').text())
+            $tableId.slideUp();
+          }
 
           runningPrice -= price;
+
+          if (runningPrice === 0) {
+            $('#place-order').slideUp();
+          }
 
           $(`#total`).text(`$ ${(runningPrice / 100)}`);
         })
         .catch((err) => { err.message; });
     });
+
+
 
     // Increment quantity of an item in the cart.
     let $plusButton = $('.plus');
@@ -139,6 +157,8 @@ $(() => {
       const foodId = $(event.target).closest('article').attr('id');
       //console.log("(this) plus: ", $(event.target).closest('article').attr('id'));
 
+      $('#place-order').slideDown();
+
       $.post(`/cart/${foodId}/edit`, { action: 'increment' })
         .then(res => {
           const foodId = res.food_id;
@@ -146,15 +166,23 @@ $(() => {
 
           const matchingFoodObj = foodData.find(food => food.id === foodId);
           const price = parseFloat(matchingFoodObj.price);
+          const $tableId = $(`.table-${foodId}`);
+
           console.log("price:", price);
           console.log("res: ", res);
 
           //console.log("price:", price);
           //console.log("res: ", res);
 
+
           $(`#${foodId}`).find('.quantity').text(quantity);
-          $(`#table-${foodId}`).find('.quantity').text(quantity);
-          $(`#table-${foodId}`).find('.price').text((price * quantity / 100));
+          $tableId.find('.quantity').text(quantity);
+          $tableId.find('.price').text((price * quantity / 100));
+
+          if ($(`#${foodId}`).find('.quantity').text() !== '0') {
+            console.log('quantity (plus): ', $(`#${foodId}`).find('.quantity').text())
+            $tableId.slideDown();
+          }
 
           //delete all the consle log later !!
           console.log("price", price);
@@ -256,4 +284,6 @@ $(() => {
     $(this).siblings('.admin-orders-p').slideUp();
     $(this).siblings('.admin-orders-p-pressed').slideDown();
   });
+
 });
+
