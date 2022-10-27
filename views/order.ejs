@@ -27,12 +27,12 @@
 <body>
   <%- include('partials/_header-user') %>
 
-  <main>
+  <main class="admin-orders-main">
     <div class="spacer"></div>
     <!-- <h4>order.ejs template - template 5 of 5</h4> -->
 
 
-    <div id="admin-orders">
+    <div class="admin-orders">
 
       <h2>Success! Your order has been placed</h2>
 
@@ -41,7 +41,8 @@
       <table class="admin-orders-tb">
         <div class="admin-order-item">
           <% for (let placedOrder of placedOrders) { %>
-          <tr id=" <% placedOrder.id %>">
+            <% if (placedOrder.quantity > 0) { %>
+          <tr id=" <% placedOrder.id %>" class="table-<% placedOrder.id %>">
             <td class="admin-orders-foodname"><%= placedOrder.item %></td>
             <td class="quantity admin-orders-quantity">
               x<%= placedOrder.quantity %>
@@ -50,7 +51,7 @@
               <%= (placedOrder.price * placedOrder.quantity) / 100 %>
             </td>
           </tr>
-          <% runningPrice += placedOrder.price * placedOrder.quantity } %>
+          <% runningPrice += placedOrder.price * placedOrder.quantity }}%>
         </div>
       </table>
 

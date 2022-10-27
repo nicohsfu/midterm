@@ -392,7 +392,7 @@ footer {
   display: none;
 }
 
-#admin-orders {
+.admin-orders {
   display: flex;
   flex-direction: column;
   // justify-content: flex-end;
@@ -457,16 +457,17 @@ footer {
 .admin-orders-p-pressed {
   display: flex;
   align-items: center;
+  font-family: $admin-font-family;
   justify-content: center;
   margin-top: 3.7rem;
   margin-bottom: 2.2rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
 .btn-primary {
   background-color: $teal;
   height: 2.4rem;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   border: none;
   display: inline-flex;
   align-items: center;
@@ -480,6 +481,16 @@ footer {
 #targetMe {
   margin: 3rem 0;
   text-align: center;
+}
+
+
+.admin-orders-main {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+strong {
+  display:inline !important;
 }
 
 // BREAKPOINTS BELOW
@@ -501,9 +512,16 @@ footer {
     display: block;
   }
 
-  #admin-orders {
+
+  .admin-orders-main {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .admin-orders {
     // padding: 2.4rem 8.5rem;
     min-width: 50rem;
+    // align-items: center;
   }
 
 }
@@ -532,10 +550,6 @@ footer {
     width: 100%;
   }
 
-  #admin-orders {
-    padding: 4rem;
-    min-width: 50rem;
-  }
 
   .add-form-fields {
     flex-direction: column;
@@ -554,18 +568,28 @@ footer {
     margin-left: 0;
   }
 
-  #admin-orders {
-    padding: 2.4rem 5rem;
-    min-width: 25rem;
-    margin-bottom: 4rem;
-  }
-
   main.admin-incoming-order-cart {
     margin-bottom: 3rem;
   }
 
+
+  .admin-orders {
+    padding: 2.4rem 2rem;
+    min-width: 25rem;
+    margin-bottom: 4rem;
+  }
+
   .admin-order-item {
     margin-bottom: 3rem;
+  }
+
+  // .admin-orders-p,
+  // .admin-orders-p-pressed {
+  //   align-items: center;
+  // }
+
+  .admin-order-message {
+    align-items: center;
   }
 
   #targetMe {
@@ -574,22 +598,7 @@ footer {
 
   .btn-primary {
     // font-size: 1.4rem;
-    padding: 0.3rem 0.1rem;
-  }
-
-
-  .admin-orders-p {
-    word-break: keep-all;
-  }
-
-  .btn-primary {
-    background-color: #0085A2;
-    height: 2.4rem;
-    font-size: 1.5rem;
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    padding: 0.3rem 0.2rem;
   }
 
   .admin-orders-foodname {
@@ -597,7 +606,7 @@ footer {
   }
 
   .admin-orders-total {
-    margin-right: 8.5rem;
+    margin-right: 7rem;
   }
 
   main {
@@ -609,4 +618,5 @@ footer {
     padding-left: 3rem;
     padding-right: 3rem;
   }
+
 }
