@@ -167,7 +167,6 @@ $(() => {
           console.log("typeof running price", typeof runningPrice); //number
           console.log("typeof price", typeof price); //string
 
-
           runningPrice += price;
 
           $(`#total`).text(`$ ${(runningPrice / 100)}`);

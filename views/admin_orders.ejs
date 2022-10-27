@@ -49,8 +49,8 @@
       <div class="spacer"></div>
       <!-- <h4>admin_orders.ejs template - template 3 of 5</h4> -->
 
-      <div id="admin-orders">
-        <h1 class="admin-orders-title">Incoming order from Bob</h1>
+      <div class="admin-orders">
+        <h2 class="admin-orders-title">Incoming order from Bob</h2>
 
         <%- console.log('placedOrders in template file: ', placedOrders); %>
 
@@ -79,11 +79,11 @@
         </div>
 
         <p class="admin-orders-p-pressed">
-          &nbsp;<strong> Bob </strong> &nbsp;has been notified! Please have their order ready by arrival.
+          <i>&nbsp;<strong> Bob </strong> &nbsp;has been notified! Please have their order ready by arrival.</i>
         </p>
         <p class="admin-orders-p">
-          Let&nbsp;<strong> Bob </strong> &nbsp;know how long until
-          satisfaction.
+          <i class="admin-order-message">Let&nbsp;<strong> Bob </strong> &nbsp;know how long until
+          satisfaction.</i>
         </p>
 
         <div class="btn-group" role="group" aria-label="Basic example">
