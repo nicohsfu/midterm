@@ -61,6 +61,9 @@
         <%- console.log('placedOrders in template file: ', placedOrders); %>
 
         <table class="admin-orders-tb">
+          <th class="cart-item-name">Item</th>
+          <th class="quantity">Qty</th>
+          <th></th>
           <div class="admin-order-item">
             <% for (let placedOrder of placedOrders) { %>
               <% if (placedOrder.quantity > 0) { %>
@@ -85,10 +88,10 @@
         </div>
 
         <p class="admin-orders-p-pressed">
-          <i>&nbsp;<strong> Bob </strong> &nbsp;has been notified! Please have their order ready by arrival.</i>
+          &nbsp;<strong>Bob</strong>&nbsp;has been notified! Please have their order ready by arrival.
         </p>
         <p class="admin-orders-p">
-          <i class="admin-order-message">Let&nbsp;<strong> Bob </strong> &nbsp;know how long until satisfaction.</i>
+          Let&nbsp;<strong>Bob</strong>&nbsp;know how long until satisfaction.
         </p>
 
         <div class="btn-group" role="group" aria-label="Basic example">

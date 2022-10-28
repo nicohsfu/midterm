@@ -51,6 +51,9 @@
       <%- console.log('placedOrders in template file: ', placedOrders); %>
 
       <table class="admin-orders-tb">
+        <th class="cart-item-name">Item</th>
+        <th class="quantity">Qty</th>
+        <th></th>
         <div class="admin-order-item">
           <% for (let placedOrder of placedOrders) { %>
             <% if (placedOrder.quantity > 0) { %>

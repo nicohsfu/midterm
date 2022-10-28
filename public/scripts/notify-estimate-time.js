@@ -9,6 +9,8 @@ $(() => {
     $('.fa-circle').hide();
     $(this).slideUp();
     $(this).siblings('.admin-orders-p').slideUp();
-    $(this).siblings('.admin-orders-p-pressed').slideDown();
+    setTimeout(() => {
+      $(this).siblings('.admin-orders-p-pressed').slideDown();
+    }, 400);
   });
 });
