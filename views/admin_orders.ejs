@@ -33,6 +33,7 @@
 
     <!-- EJS SPECIFIC -->
     <link rel="stylesheet" href="/styles/your-cart.css" />
+    <link rel="stylesheet" href="/styles/order-card.css" />
 
     <link rel="stylesheet" href="/styles/breakpoints.css" />
 
@@ -54,7 +55,7 @@
 
       <div class="spacer"></div>
 
-      <div id="admin-orders">
+      <div class="admin-orders">
         <h1 class="admin-orders-title">Incoming order from Bob</h1>
 
         <%- console.log('placedOrders in template file: ', placedOrders); %>
@@ -84,11 +85,10 @@
         </div>
 
         <p class="admin-orders-p-pressed">
-          &nbsp;<strong> Bob </strong> &nbsp;has been notified! Please have their order ready by arrival.
+          <i>&nbsp;<strong> Bob </strong> &nbsp;has been notified! Please have their order ready by arrival.</i>
         </p>
         <p class="admin-orders-p">
-          Let&nbsp;<strong> Bob </strong> &nbsp;know how long until
-          satisfaction.
+          <i class="admin-order-message">Let&nbsp;<strong> Bob </strong> &nbsp;know how long until satisfaction.</i>
         </p>
 
         <div class="btn-group" role="group" aria-label="Basic example">

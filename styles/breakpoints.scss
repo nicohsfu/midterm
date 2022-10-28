@@ -17,7 +17,12 @@
     display: block;
   }
 
-  #admin-orders {
+  .admin-orders-main {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .admin-orders {
     // padding: 2.4rem 8.5rem;
     min-width: 50rem;
   }
@@ -63,11 +68,6 @@
     width: 100%;
   }
 
-  #admin-orders {
-    padding: 4rem;
-    min-width: 50rem;
-  }
-
   .add-form-fields {
     flex-direction: column;
   }
@@ -77,8 +77,8 @@
     margin-bottom: 2rem;
   }
 
-  #admin-orders {
-    padding: 2.4rem 5rem;
+  .admin-orders {
+    padding: 2.4rem 2rem;
     min-width: 25rem;
     margin-bottom: 4rem;
   }
@@ -87,8 +87,12 @@
     margin-bottom: 3rem;
   }
 
-  .admin-order-item {
-    margin-bottom: 3rem;
+  // .admin-order-item {
+  //   margin-bottom: 3rem;
+  // }
+
+  .admin-order-message {
+    align-items: center;
   }
 
   #targetMe {
@@ -96,8 +100,7 @@
   }
 
   .btn-primary {
-    // font-size: 1.4rem;
-    padding: 0.3rem 0.1rem;
+    padding: 0.3rem 0.2rem;
   }
 
 
@@ -105,22 +108,12 @@
     word-break: keep-all;
   }
 
-  .btn-primary {
-    background-color: #0085A2;
-    height: 2.4rem;
-    font-size: 1.5rem;
-    border: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .admin-orders-foodname {
     padding-right: 2rem;
   }
 
   .admin-orders-total {
-    margin-right: 8.5rem;
+    margin-right: 7rem;
   }
 
   main {

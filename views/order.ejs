@@ -26,6 +26,7 @@
 
   <!-- EJS SPECIFIC -->
   <link rel="stylesheet" href="/styles/your-cart.css" />
+  <link rel="stylesheet" href="/styles/order-card.css" />
 
   <link rel="stylesheet" href="/styles/breakpoints.css" />
 
@@ -43,16 +44,17 @@
   <main>
     <div class="spacer"></div>
 
-    <div id="admin-orders">
+    <div class="admin-orders">
 
-      <h2>Success! Your order has been placed</h2>
+      <h1>Success! Your order has been placed</h1>
 
       <%- console.log('placedOrders in template file: ', placedOrders); %>
 
       <table class="admin-orders-tb">
         <div class="admin-order-item">
           <% for (let placedOrder of placedOrders) { %>
-          <tr id=" <% placedOrder.id %>">
+            <% if (placedOrder.quantity > 0) { %>
+            <tr id=" <% placedOrder.id %>" class="table-<% placedOrder.id %>">
             <td class="admin-orders-foodname"><%= placedOrder.item %></td>
             <td class="quantity admin-orders-quantity">
               x<%= placedOrder.quantity %>
@@ -61,7 +63,7 @@
               <%= (placedOrder.price * placedOrder.quantity) / 100 %>
             </td>
           </tr>
-          <% runningPrice += placedOrder.price * placedOrder.quantity } %>
+          <% runningPrice += placedOrder.price * placedOrder.quantity }} %>
         </div>
       </table>
 
