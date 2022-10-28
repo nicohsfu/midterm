@@ -7,6 +7,11 @@
   border-radius: 1.25rem;
   background-color: $aqua;
   color: white;
+  transition-duration: 0.2s;
+}
+
+.food-card-article:hover {
+  background-color: $teal;
 }
 
 .food-card-info {
@@ -94,7 +99,7 @@
 
 .minus:hover,
 .plus:hover {
-  background-color: $teal;
+  background-color: $red;
 }
 
 .button-type {
