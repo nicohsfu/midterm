@@ -1,7 +1,7 @@
 LHL Midterm Project (October 2022)
 ===
 
-## by 
+## by Minha Kim, Nico Hernandez, Kasey Valdez
 
 ## Getting Started
 
