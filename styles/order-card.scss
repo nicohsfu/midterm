@@ -17,12 +17,6 @@
   color: white;
   background-color: #4E4E4E;
   border-radius: 1rem;
-
-}
-
-.admin-orders-title {
-  margin-bottom: 0%;
-  margin-top: 1rem;
 }
 
 .admin-orders-tb {
@@ -32,9 +26,9 @@
   margin-bottom: 1rem;
 }
 
-.admin-order-item {
-  margin-bottom: 5rem;
-}
+// .admin-order-item {
+//   margin-bottom: 5rem;
+// }
 
 .admin-orders-quantity {
   width: 15rem;
@@ -49,7 +43,7 @@
 .admin-orders-foodname {
   font-size: 1.4rem;
   font-weight: 500;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .admin-orders-bottom {
@@ -73,8 +67,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 3.7rem;
-  margin-bottom: 2.2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   font-size: 1.4rem;
 }
 

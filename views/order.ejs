@@ -54,20 +54,18 @@
         <th class="cart-item-name">Item</th>
         <th class="quantity">Qty</th>
         <th></th>
-        <div class="admin-order-item">
-          <% for (let placedOrder of placedOrders) { %>
-            <% if (placedOrder.quantity > 0) { %>
-            <tr id=" <% placedOrder.id %>" class="table-<% placedOrder.id %>">
-            <td class="admin-orders-foodname"><%= placedOrder.item %></td>
-            <td class="quantity admin-orders-quantity">
-              x<%= placedOrder.quantity %>
-            </td>
-            <td class="admin-orders-price">
-              <%= (placedOrder.price * placedOrder.quantity) / 100 %>
-            </td>
-          </tr>
-          <% runningPrice += placedOrder.price * placedOrder.quantity }} %>
-        </div>
+        <% for (let placedOrder of placedOrders) { %>
+          <% if (placedOrder.quantity > 0) { %>
+          <tr id=" <% placedOrder.id %>" class="table-<% placedOrder.id %>">
+          <td class="admin-orders-foodname"><%= placedOrder.item %></td>
+          <td class="quantity admin-orders-quantity">
+            x<%= placedOrder.quantity %>
+          </td>
+          <td class="admin-orders-price">
+            <%= (placedOrder.price * placedOrder.quantity) / 100 %>
+          </td>
+        </tr>
+        <% runningPrice += placedOrder.price * placedOrder.quantity }} %>
       </table>
 
       <div class="admin-orders-bottom">

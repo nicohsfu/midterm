@@ -12,6 +12,10 @@
 
 .food-card-article:hover {
   background-color: $teal;
+  
+  img {
+    filter: grayscale(0%);
+  }
 }
 
 .food-card-info {
@@ -72,6 +76,8 @@
     max-width: 100%;
     max-height: auto;
     border-radius: 0 1.25rem 1.25rem 0;
+    filter: grayscale(30%);
+    transition-duration: 0.2s;
   }
 }
 
