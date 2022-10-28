@@ -1,17 +1,21 @@
 @import '_global-variables';
 
+.btn-group, btn{
+  height: 2rem;
+  width: 100%;
+}
+
 .admin-orders {
+  // border: 3px solid red;
   display: flex;
   flex-direction: column;
-  // justify-content: flex-end;
-  // align-items: center;
+  justify-content: center;
+  align-items: center;
   padding: 2.4rem 5rem;
   font-family: $admin-font-family;
   color: white;
   background-color: #4E4E4E;
   border-radius: 1rem;
-  min-width: 64rem;
-  min-height: 33rem;
 }
 
 .admin-orders-title {
