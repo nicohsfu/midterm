@@ -30,6 +30,9 @@
   <link rel="stylesheet" href="/styles/food-card.css" />
   <link rel="stylesheet" href="/styles/your-cart.css" />
 
+  <link rel="stylesheet" href="/styles/your-cart.css" />
+  <link rel="stylesheet" href="/styles/order-card.css" />
+
   <link rel="stylesheet" href="/styles/breakpoints.css" />
 
   <!-- EXTERNAL STUFF  -->
@@ -45,6 +48,8 @@
 <body>
   <%- include('partials/_header-user') %>
 
+  <%- console.log('placedOrders in template file for foods ejs: ', placedOrders); %>
+
   <main>
     <div class="spacer"></div>
 
@@ -58,6 +63,7 @@
 
     <!-- dynamic food "card" -->
     <section class="food-card-container" id="user">
+
     </section>
 
     <!-- have no end point yet, foods/3 is just a placeholder -->
@@ -71,52 +77,44 @@
 
         <div class="your-cart-running-totals">
           <table class="cart" id="cart">
-            <th class="cart-item-name">Item</th>
-            <th class="quantity">Qty</th>
-            <th class="total-column"></th>
-            <th class="price"></th>
-            <tr class="table-1 all-cart-rows">
-              <td class="cart-item-name">Gourmet Pizza</td>
-              <td class="quantity">0</td>
-              <td class="total-column"></td>
-              <td class="price">0</td>
-            </tr>
-            <tr class="table-2 all-cart-rows">
-              <td class="cart-item-name">Carbonara</td>
-              <td class="quantity">0</td>
-              <td class="total-column"></td>
-              <td class="price">0</td>
-            </tr>
-            <tr class="table-3 all-cart-rows">
-              <td class="cart-item-name">Scallop Risotto</td>
-              <td class="quantity">0</td>
-              <td class="total-column"></td>
-              <td class="price">0</td>
-            </tr>
-            <tr class="table-4 all-cart-rows">
-              <td class="cart-item-name">Caesar Salad</td>
-              <td class="quantity">0</td>
-              <td></td>
-              <td class="price">0</td>
-            </tr>
-            <tr class="table-5 all-cart-rows">
-              <td class="cart-item-name">Garlic Bread</td>
-              <td class="quantity">0</td>
-              <td class="total-column"></td>
-              <td class="price">0</td>
-            </tr>
-            <tr class="table-divider" >
-              <td colspan="4" class="receipt-divider">
-                <hr />
-              </td>
-            </tr>
-            <tr id="cart-total">
-              <td></td>
-              <td></td>
-              <td class="align-right-total total-column">Total:</td>
-              <td id="total">0</td>
-            </tr>
+
+
+
+              <div>
+              <% for (let placedOrder of placedOrders) { %>
+                <% if (placedOrder.quantity > 0) { %>
+
+                <tr id=" <% placedOrder.id %>" class="table-<% placedOrder.id %> all-cart-rows">
+
+                  <td class="cart-item-name"><%= placedOrder.item %></td>
+                  <td class="quantity">x<%= placedOrder.quantity %></td>
+                  <td class="total-column"></td>
+                  <td class="price"> <%= (placedOrder.price * placedOrder.quantity) / 100 %> </td>
+
+                </tr>
+              <% runningPrice += placedOrder.price * placedOrder.quantity }} %>
+              </div>
+
+              <div>
+                <tr>
+                  <td class="cart-item-name"></td>
+                  <td class="quantity"></td>
+                  <td class="total-column">Total</td>
+                  <td class="price">$ <%= runningPrice / 100%></td>
+                </tr>
+              </div>
+
+
           </table>
+
+          <!-- <span class="admin-orders-bottom">
+            <span class="admin-orders-total">Total </span>
+            <span id="total" class="admin-orders-total-price"
+              >$ <%= runningPrice / 100%></span
+            >
+          </span> -->
+
+
         </div>
 
         <div>

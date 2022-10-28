@@ -1,6 +1,6 @@
 $(() => {
   // Hides cart items until items are added to cart
-  $('.all-cart-rows').hide();
+  //$('.all-cart-rows').hide();
   $('#place-order').hide();
 
   // Menu items fetched will be kept in this array
@@ -43,7 +43,7 @@ $(() => {
 
   // Preppends/appeneds the food elements (food cards) and their appropriate
   // button sets (-/+ (user) or delete (admin)) to the page
-  const renderFoods = function(foodsArr) {
+  const renderFoods = function (foodsArr) {
     $('.food-card-container').empty();
 
     // console.log("foodsArr:", foodsArr);
@@ -100,8 +100,8 @@ $(() => {
           $tableId.find('.quantity').text(quantity);
           $tableId.find('.price').text((price * quantity / 100));
 
-          if ($(`#${foodId}`).find('.quantity').text() === '0') {
-            console.log('quantity (minus): ', $(`#${foodId}`).find('.quantity').text());
+          if ($tableId.find('.quantity').text() === '0') {
+            console.log('quantity (minus): ', $tableId.find('.quantity').text());
             $tableId.slideUp();
           }
 
@@ -117,8 +117,8 @@ $(() => {
     });
 
     // Increment quantity of an item in the cart.
-    let $plusButton = $('.plus');
-    $plusButton.on('click', (event) => {
+    //let $plusButton = $('.plus');
+    $('.food-card-container').on('click', '.plus', (event) => {
       event.preventDefault();
       console.log("increment clicked");
       const foodId = $(event.target).closest('article').attr('id');
@@ -127,6 +127,7 @@ $(() => {
 
       $.post(`/cart/${foodId}/edit`, { action: 'increment' })
         .then(res => {
+          console.log("post request was made??? inside .then");
           const foodId = res.food_id;
           const quantity = res.quantity;
 
@@ -134,12 +135,17 @@ $(() => {
           const price = parseFloat(matchingFoodObj.price);
           const $tableId = $(`.table-${foodId}`);
 
-          $(`#${foodId}`).find('.quantity').text(quantity);
+
+          const foodQuantity = $(`#${foodId}`).find('.quantity');
+          console.log('foodQuantity: ', foodQuantity);
+
+          $(foodQuantity[0]).text(quantity);
+
           $tableId.find('.quantity').text(quantity);
           $tableId.find('.price').text((price * quantity / 100));
 
-          if ($(`#${foodId}`).find('.quantity').text() !== '0') {
-            console.log('quantity (plus): ', $(`#${foodId}`).find('.quantity').text());
+          if ($tableId.find('.quantity').text() !== '0') {
+            console.log('quantity (plus): ', $tableId.find('.quantity').text());
             $tableId.slideDown();
           }
 
@@ -164,7 +170,7 @@ $(() => {
 
   // Fetches json data from /foods/menu_items to render and load food cards
   // to the page
-  const loadFoods = function() {
+  const loadFoods = function () {
     $.get('/foods/menu_items', { action: 'getFoods' })
       .then((arr) => {
         foodData = [...arr];

@@ -39,7 +39,7 @@ const decrementItem = (id) => {
 //check if using anywhere
 const getPendingOrders = () => {
   const query = `
-    SELECT;
+    SELECT
       foods.name AS item,
       quantity,
       users.name AS name,
@@ -53,7 +53,7 @@ const getPendingOrders = () => {
 
   return db.query(query)
     .then(data => {
-      console.log('item currently pending: ', data.rows);
+      console.log('items currently pending: ', data.rows[0]);
       return data.rows;
     })
     .catch((err) => { err.message; });
@@ -101,5 +101,6 @@ module.exports = {
   incrementItem,
   decrementItem,
   placeOrder,
-  getPlacedOrders
+  getPlacedOrders,
+  getPendingOrders
 };

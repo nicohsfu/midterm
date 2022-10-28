@@ -1,13 +1,29 @@
 const express = require('express');
 const router = express.Router();
 
-const { getFoods, addFoods, deleteFoods, } = require('../db/queries/foods_queries');
+const { getFoods, addFoods, deleteFoods } = require('../db/queries/foods_queries');
+const {  getPendingOrders } = require('../db/queries/order_queries');
 
 
 // GET foods/
 // Home page for user
 router.get('/', (req, res) => {
-  res.render('foods');
+
+  let placedOrders;
+
+  getPendingOrders()
+    .then((value) => {
+      placedOrders = value;
+    })
+    .then(() => {
+      const templateVars = {
+        placedOrders,
+        runningPrice: 0
+      };
+
+      console.log('placedOrders routes file: ', placedOrders);
+      res.render('foods', templateVars);
+    });
 });
 
 // GET foods/menu_items

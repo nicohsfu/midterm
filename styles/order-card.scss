@@ -31,6 +31,8 @@
 
 .admin-order-item {
   margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .admin-orders-quantity {
