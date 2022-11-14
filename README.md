@@ -4,7 +4,14 @@ Pikmeup allows for a food ordering experience where customers can receive SMS up
 
 ## Final Product
 
+### User placing an order
+[User placing an order](https://github.com/nicohsfu/midterm/blob/master/docs/screenshots/user-order.gif?raw=true)
 
+### Restaurant receiving an order
+[Restaurant receiving an order](https://github.com/nicohsfu/midterm/blob/master/docs/screenshots/admin-order.gif?raw=true)
+
+### Restaurant adding new menu item
+[Restaurant adding new menu item](https://github.com/nicohsfu/midterm/blob/master/docs/screenshots/admin-add.gif?raw=true)
 
 ## by Minha Kim, Nico Hernandez, Kasey Valdez
 
