@@ -1,19 +1,19 @@
 LHL Midterm Project (October 2022)
+by Minha Kim, Nico Hernandez, Kasey Valdez
 ===
+
 Pikmeup allows for a food ordering experience where customers can receive SMS updates regarding the status of their order. Users will recieve an SMS text with an estimated pickup, followed by an order completion text.
 
 ## Final Product
 
 ### User placing an order
-[User placing an order](https://github.com/nicohsfu/midterm/blob/master/docs/screenshots/user-order.gif?raw=true)
+![User placing an order](https://github.com/nicohsfu/midterm/blob/master/docs/user-order.gif?raw=true)
 
 ### Restaurant receiving an order
-[Restaurant receiving an order](https://github.com/nicohsfu/midterm/blob/master/docs/screenshots/admin-order.gif?raw=true)
+![Restaurant receiving an order](https://github.com/nicohsfu/midterm/blob/master/docs/admin-order.gif?raw=true)
 
 ### Restaurant adding new menu item
-[Restaurant adding new menu item](https://github.com/nicohsfu/midterm/blob/master/docs/screenshots/admin-add.gif?raw=true)
-
-## by Minha Kim, Nico Hernandez, Kasey Valdez
+![Restaurant adding new menu item](https://github.com/nicohsfu/midterm/blob/master/docs/admin-add.gif?raw=true)
 
 ## Getting Started
 
