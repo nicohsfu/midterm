@@ -1,8 +1,8 @@
-# LHL Midterm Project
+# Pikmiup
 
 by Minha Kim, Nico Hernandez, Kasey Valdez
 
-Pikmeup allows for a food ordering experience where customers can receive SMS updates regarding the status of their order. Users will recieve an SMS text with an estimated pickup, followed by an order completion text.
+Pikmiup allows for a food ordering experience where customers can receive SMS updates regarding the status of their order. Users will recieve an SMS text with an estimated pickup, followed by an order completion text.
 
 ## Final Product
 
